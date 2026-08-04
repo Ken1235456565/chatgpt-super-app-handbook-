@@ -1,0 +1,4 @@
+interface:
+  display_name: "Maintain ChatGPT Handbook"
+  short_description: "Plan, author, verify, and evolve the handbook site"
+  default_prompt: "Use $maintain-chatgpt-handbook to plan and implement the next verified handbook increment."
