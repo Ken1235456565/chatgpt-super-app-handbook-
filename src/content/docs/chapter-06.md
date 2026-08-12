@@ -26,11 +26,29 @@ For developers, a practical product-building path is Figma plus Codex plus Verce
 
 Codex is useful in the middle. You can ask it to inspect a Figma design, identify reusable components, compare the design against the current codebase, and propose an implementation plan. Then it can edit local files, run tests, start a dev server, and help verify the result. This is different from asking AI to generate a whole app in one pass. The better workflow is design intent, codebase inspection, incremental implementation, preview, review, and iteration.
 
+In Figma Dev Mode, the Ready for dev view collects designs that have been marked for implementation and surfaces recent activity. Treat that status as a handoff signal, then verify the selected version, annotations, component states, and linked requirements before coding.
+
+<figure>
+  <a class="figure-zoom" href="/images/figma-dev-mode-ready-for-dev.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 6.1">
+    <img src="/images/figma-dev-mode-ready-for-dev.png" alt="Figma Dev Mode Ready for dev view showing a design version, recent activity, and compare changes control." width="1920" height="1080" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 6.1.</strong> Figma Dev Mode groups work marked Ready for dev and keeps recent design activity visible. Source: <a href="https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode">Figma Help Center, Guide to Dev Mode</a> (accessed August 12, 2026).</figcaption>
+</figure>
+
 A good developer prompt might be: "Use this Figma screen as the target for the dashboard page. Inspect the existing component system first. Reuse existing buttons, cards, typography, and data-fetching patterns. Implement the page in the local Next.js/TypeScript app. Start the dev server and verify the layout before summarizing." The exact framework can change, but the discipline stays the same.
 
 A practical front-end stack should be chosen for the workflow, not for fashion. When the project is a product-style web app that needs preview deployments, typed components, image optimization, and server-side or edge behavior, Next.js plus Tailwind is often a reasonable default. Next.js fits Vercel's deployment model closely, while Tailwind gives Codex a clear, text-based styling surface. That makes it easier for the agent to translate Figma values into implementation without inventing a separate CSS vocabulary for every screen. This does not mean Vue, Svelte, WordPress, or a static site are wrong. It means the stack should match the product shape, team skills, maintenance burden, and deployment path.
 
 The Figma handoff should make reusable decisions explicit. Colors, spacing, radius, typography, and component states should be expressed as design tokens or clear component variants. In code, those decisions should map to a Tailwind theme, shared UI primitives, and component props. Codex or Claude Code should be asked to inspect the existing component library before generating new files. A stronger request is: "Use the Figma screen as the design target, but first identify reusable components, tokens, and layout patterns in the codebase. Reuse them unless there is a clear reason to add a new component." This reduces duplicate buttons, cards, forms, and layout shells.
+
+Focus view narrows the handoff to one design while keeping the inspect panel, measurements, component information, and developer resources in view. Capture the exact Figma link or node, relevant variant, viewport, and state in the Codex task so implementation does not drift toward a visually similar but incorrect screen.
+
+<figure>
+  <a class="figure-zoom" href="/images/figma-dev-mode-focus-view.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 6.2">
+    <img src="/images/figma-dev-mode-focus-view.png" alt="Figma Dev Mode focus view with a selected design, spacing measurements, inspect panel, component details, and developer resources." width="1920" height="1080" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 6.2.</strong> Figma Dev Mode Focus view keeps the selected design, measurements, component information, and developer resources together. Source: <a href="https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode">Figma Help Center, Guide to Dev Mode</a> (accessed August 12, 2026).</figcaption>
+</figure>
 
 ### Using a Sites Prototype as an Engineering Handoff
 

@@ -44,9 +44,7 @@ Conversation still matters, but the working mode matters too. A request may ask 
 
 That is a different kind of computing experience.
 
-<figure><img src="/images/kix.aq0j9ytjxya0.png" alt="Illustration from the source document" loading="lazy" /><figcaption>Illustration from the source document</figcaption></figure>
-
-Figure 1.2. ChatGPT turns a natural-language request into files, tests, and a visible result.
+For current official examples of the Codex project and task interfaces, continue to [Chapter 3](/chapter-03/).
 
 ## 1.4 How to Access ChatGPT
 
@@ -161,9 +159,12 @@ How can you help me get closer to these goals? What tasks can you do for me?
 
 This flips the usual dynamic. Instead of assuming you already know how to use ChatGPT, you let ChatGPT help map the possibility space.
 
-<figure><img src="/images/kix.f18bplqpy9dn.png" alt="Illustration from the source document" loading="lazy" /><figcaption>Illustration from the source document</figcaption></figure>
-
-Figure 1.5. Straight prompting gives ChatGPT a task; reverse prompting asks ChatGPT to first learn about the user's goals.
+<figure>
+  <a class="figure-zoom" href="/images/kix.f18bplqpy9dn.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.1">
+    <img src="/images/kix.f18bplqpy9dn.png" alt="Diagram comparing straight prompting with reverse prompting." width="1672" height="941" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 1.1.</strong> Straight prompting gives ChatGPT a task; reverse prompting asks ChatGPT to first learn about the user's goals.</figcaption>
+</figure>
 
 Reverse prompting is especially helpful because the relationship between human and AI can be complex. Sometimes the human is the expert and the AI is filling in details. Other times the AI has a broader view of possible workflows than the beginner does. In those moments, the best prompt is not a command. It is an invitation:
 
@@ -203,6 +204,9 @@ The technical threshold follows the same pattern. A beginner can use ChatGPT for
 
 The best choice is not the tool with the longest feature list. It is the tool whose operating model matches the user's skills and risk tolerance. A non-programmer or mixed-work user may prefer ChatGPT's broader workspace. A terminal-oriented engineer may prefer Claude Code's configurable precision. A developer coordinating editor, terminal, and browser tasks may prefer Antigravity's integrated agent experience. In every case, convenience should increase gradually with trust: begin with a limited workspace, keep important work under version control, maintain backups, inspect proposed changes, and reserve full access for situations where it is truly necessary.
 
-<figure><img src="/images/kix.8e2oly9rxw1s.png" alt="Illustration from the source document" loading="lazy" /><figcaption>Illustration from the source document</figcaption></figure>
-
-Figure 1.6. A tool comparison presented inside ChatGPT, organized by safety, convenience, and technical threshold.
+<figure>
+  <a class="figure-zoom" href="/images/kix.8e2oly9rxw1s.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.2">
+    <img src="/images/kix.8e2oly9rxw1s.png" alt="Tool comparison presented inside ChatGPT and organized by safety, convenience, and technical threshold." width="1672" height="941" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 1.2.</strong> A tool comparison presented inside ChatGPT, organized by safety, convenience, and technical threshold.</figcaption>
+</figure>

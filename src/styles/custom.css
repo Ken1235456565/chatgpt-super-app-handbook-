@@ -160,11 +160,123 @@ header.header {
   border-radius: 1rem;
   background: color-mix(in srgb, var(--sl-color-bg) 92%, var(--sl-color-white) 8%);
 }
-.sl-markdown-content figure img { width: 100%; max-height: 36rem; object-fit: contain; border-radius: 0.65rem; }
-.sl-markdown-content figcaption { padding: 0.75rem 0.4rem 0.25rem; color: var(--sl-color-gray-3); font-size: 0.85rem; line-height: 1.5; }
+.sl-markdown-content .figure-zoom {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 0.65rem;
+  cursor: zoom-in;
+}
+.sl-markdown-content .figure-zoom::after {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  color: #fff;
+  font-size: 1.35rem;
+  line-height: 1;
+  content: '+';
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.78);
+  box-shadow: 0 0.45rem 1.2rem rgba(2, 6, 23, 0.24);
+  opacity: 0;
+  transform: translateY(0.35rem);
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+.sl-markdown-content .figure-zoom:hover::after,
+.sl-markdown-content .figure-zoom:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sl-markdown-content .figure-zoom:focus-visible {
+  outline: 3px solid var(--sl-color-accent);
+  outline-offset: 3px;
+}
+.sl-markdown-content figure img {
+  display: block;
+  width: 100%;
+  max-height: 36rem;
+  object-fit: contain;
+  border-radius: 0.65rem;
+  transition: transform 180ms ease;
+}
+.sl-markdown-content .figure-zoom:hover img { transform: scale(1.008); }
+.sl-markdown-content figcaption {
+  padding: 0.75rem 0.4rem 0.25rem;
+  color: var(--sl-color-gray-3);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+.sl-markdown-content figcaption strong { color: var(--sl-color-gray-2); }
 .sl-markdown-content table { display: table; width: 100%; font-size: 0.92rem; }
-.sl-markdown-content h2 { margin-top: 3.4rem; letter-spacing: -0.025em; }
+.sl-markdown-content h2 {
+  margin-top: 3.4rem;
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
 .sl-markdown-content h3 { margin-top: 2.4rem; }
+
+.figure-lightbox {
+  width: min(96vw, 100rem);
+  max-width: none;
+  max-height: 96vh;
+  margin: auto;
+  padding: 3.25rem 1rem 1rem;
+  color: var(--sl-color-white);
+  border: 1px solid var(--sl-color-hairline-light);
+  border-radius: 1rem;
+  background: color-mix(in srgb, var(--sl-color-bg) 96%, var(--sl-color-white) 4%);
+  box-shadow: 0 2rem 6rem rgba(2, 6, 23, 0.45);
+}
+.figure-lightbox::backdrop {
+  background: rgba(2, 6, 23, 0.82);
+  backdrop-filter: blur(6px);
+}
+.figure-lightbox__close {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.75rem;
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  place-items: center;
+  color: inherit;
+  font: inherit;
+  font-size: 1.7rem;
+  line-height: 1;
+  cursor: pointer;
+  border: 1px solid var(--sl-color-hairline-light);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--sl-color-bg) 88%, var(--sl-color-white) 12%);
+}
+.figure-lightbox__close:focus-visible {
+  outline: 3px solid var(--sl-color-accent);
+  outline-offset: 2px;
+}
+.figure-lightbox__image {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 78vh;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 0.65rem;
+}
+.figure-lightbox__caption {
+  max-width: 70rem;
+  margin: 0.85rem auto 0;
+  color: var(--sl-color-gray-2);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+}
+html:has(.figure-lightbox[open]) { overflow: hidden; }
 
 @media (max-width: 50rem) {
   .path-grid, .capability-map { grid-template-columns: 1fr; }
@@ -178,4 +290,11 @@ header.header {
   .capability-map li small { grid-column: 2; }
   .chapter-bands a { grid-template-columns: 1fr; gap: 0.35rem; }
   .chapter-bands small { grid-column: 1; }
+  .sl-markdown-content h2 { font-size: 1.9rem; }
+  .figure-lightbox { width: 98vw; padding-inline: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sl-markdown-content .figure-zoom::after,
+  .sl-markdown-content figure img { transition: none; }
 }

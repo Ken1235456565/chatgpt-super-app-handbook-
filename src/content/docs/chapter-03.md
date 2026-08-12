@@ -14,6 +14,24 @@ Treat ChatGPT as a work environment rather than one endless conversation. Organi
 
 First identify what must be produced, what context is required, and how the result will be reviewed. The core distinction between ChatGPT and Codex is defined once in [Chapter 1](/chapter-01/#11-chatgpt-in-plain-english); this chapter focuses on organizing the work around that choice.
 
+Codex begins from an explicit project boundary. Select only the folder or Git repository the task needs, then confirm that the displayed project is the one you intend to change. Interface details can evolve, so use these official onboarding screens as workflow landmarks rather than a permanent map of every control.
+
+<figure>
+  <a class="figure-zoom" href="/images/codex-select-project.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.1">
+    <img src="/images/codex-select-project.png" alt="Codex project selection screen with one repository selected and controls to add a project or continue." width="1911" height="1149" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 3.1.</strong> Codex asks you to select the specific local folder or Git repository it may work in. Source: <a href="https://chatgpt.com/features/codex-get-started/">OpenAI, Get started with Codex</a> (accessed August 12, 2026).</figcaption>
+</figure>
+
+After you select the project, check the project name, execution location, and Git branch shown around the composer before sending the task. Add relevant files or context, describe the outcome, and include how Codex should verify the result.
+
+<figure>
+  <a class="figure-zoom" href="/images/codex-first-task.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.2">
+    <img src="/images/codex-first-task.png" alt="Codex first-task composer showing the selected project, task field, local execution setting, and Git branch." width="1911" height="1149" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 3.2.</strong> The first-task composer keeps the task, selected project, execution location, and Git branch visible together. Source: <a href="https://chatgpt.com/features/codex-get-started/">OpenAI, Get started with Codex</a> (accessed August 12, 2026).</figcaption>
+</figure>
+
 ## 3.2 Separate Distinct Outcomes
 
 Start a separate conversation or task for each distinct outcome. Keep research, drafting, implementation, review, and follow-up separate when combining them would make decisions or evidence difficult to recover.

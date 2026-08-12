@@ -8,7 +8,7 @@ sidebar:
 
 <!-- Generated from https://docs.google.com/document/d/1h-7OtxJBAktYswMUojZBh2NJ2gB9SaNH0hhRCtcb1po/edit. Edit the source document or this file deliberately. -->
 
-2.1 The Simple Meaning of a Super-App
+## 2.1 The Simple Meaning of a Super-App
 
 A super-app is an app that becomes more than one app.
 
@@ -30,11 +30,14 @@ The simple meaning is this: a super-app is a digital home base. It gathers many 
 
 This idea matters because it changes the role of software. Instead of treating every task as a separate destination, a super-app treats many tasks as connected parts of one larger workflow. The user does not think, "Which app should I open now?" The user thinks, "What do I need to get done?" The super-app then provides the path.
 
-<figure><img src="/images/kix.1r05x0eyf9zg.png" alt="A central smartphone connects messaging, payments, shopping, calendar, transportation, maps, and services in one ecosystem." loading="lazy" /><figcaption>A central smartphone connects messaging, payments, shopping, calendar, transportation, maps, and services in one ecosystem.</figcaption></figure>
+<figure>
+  <a class="figure-zoom" href="/images/kix.1r05x0eyf9zg.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 2.1">
+    <img src="/images/kix.1r05x0eyf9zg.png" alt="A central smartphone connects messaging, payments, shopping, calendar, transportation, maps, and services in one ecosystem." width="1672" height="941" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 2.1.</strong> A super-app as a digital home base.</figcaption>
+</figure>
 
-Figure 2.1. A Super-App as a Digital Home Base
-
-2.2 Why WeChat Is the Best Real-World Example
+## 2.2 Why WeChat Is the Best Real-World Example
 
 The best real-world example of a super-app is WeChat.
 
@@ -46,7 +49,7 @@ In the United States, app use is often more separated. A person might text in iM
 
 That is why WeChat is not just a successful app. It is the clearest modern example of what happens when an app becomes infrastructure.
 
-2.3 The China Context Behind WeChat's Rise
+## 2.3 The China Context Behind WeChat's Rise
 
 WeChat's success was not only the result of good product design. It also depended on the environment in which it grew. China entered the mobile internet era under conditions that were very different from many Western markets, and those conditions helped a super-app become possible.
 
@@ -60,7 +63,7 @@ This helps answer a question many readers may have: why did WhatsApp not become 
 
 Max noticed this difference immediately as an international student. In China, a phone and a QR code often felt sufficient for daily purchases, including transactions with very small merchants. In the United States, payment was still convenient, but it was spread across bank cards, merchant apps, digital wallets, and person-to-person payment services. The difference was not that one country had technology and the other did not; it was that China's mobile-payment layer was more consistently connected to the same social and service environment.
 
-2.4 Why Payment Was the Turning Point
+## 2.4 Why Payment Was the Turning Point
 
 WeChat did not become a super-app simply because it had many features. Many apps have many features. The important turning point was payment.
 
@@ -72,7 +75,7 @@ Payment changed WeChat's role. Before payment, WeChat was mainly a communication
 
 This is one of the deepest lessons of the super-app model. Features matter, but transaction power matters more. When an app controls communication and payment together, it can become a daily-life entry point rather than just a place to exchange messages.
 
-2.5 How WeChat Combines Messaging, Payments, Shopping, and Services
+## 2.5 How WeChat Combines Messaging, Payments, Shopping, and Services
 
 WeChat's power comes from combination.
 
@@ -84,7 +87,7 @@ Shopping and services add another layer. Inside WeChat, users can interact with 
 
 This is the super-app pattern in action: communication, identity, payments, services, and third-party tools all reinforce one another. Each layer makes the other layers more useful. The more people use the app to communicate, the more useful payments become. The more useful payments become, the more businesses want to be there. The more businesses build there, the more users have reasons to stay.
 
-2.6 The Mini-Program Ecosystem: WeChat as a Platform
+## 2.6 The Mini-Program Ecosystem: WeChat as a Platform
 
 WeChat's mini-program ecosystem deserves special attention because it is one of the most distinctive parts of the super-app model.
 
@@ -96,11 +99,14 @@ The range is broad. Food delivery, hospital registration, restaurant ordering, e
 
 This is the most typical expression of a super-app: the app stops being only one product and becomes an ecosystem where other products live. WeChat does not merely offer features. It gives other organizations a way to exist inside WeChat's daily-life interface.
 
-<figure><img src="/images/kix.qv5q32jgq17e.png" alt="A mobile super-app connects chat, payments, shopping, transport, healthcare, food, education, and local services." loading="lazy" /><figcaption>A mobile super-app connects chat, payments, shopping, transport, healthcare, food, education, and local services.</figcaption></figure>
+<figure>
+  <a class="figure-zoom" href="/images/kix.qv5q32jgq17e.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 2.2">
+    <img src="/images/kix.qv5q32jgq17e.png" alt="A mobile super-app connects chat, payments, shopping, transport, healthcare, food, education, and local services." width="1672" height="941" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 2.2.</strong> The WeChat ecosystem and mini-programs.</figcaption>
+</figure>
 
-Figure 2.2. The WeChat Ecosystem and Mini-Programs
-
-2.7 Why People in China Use WeChat for Everyday Life
+## 2.7 Why People in China Use WeChat for Everyday Life
 
 People in China use WeChat for everyday life because it solves everyday problems in one place.
 
@@ -112,7 +118,7 @@ Network effects are another reason. A network effect means a service becomes mor
 
 Trust and habit also matter. Once people learn that an app can handle many ordinary tasks, they stop seeing it as one tool among many. They start seeing it as the default place to begin.
 
-2.8 Platform Network Effects: Why WeChat Is Hard to Challenge
+## 2.8 Platform Network Effects: Why WeChat Is Hard to Challenge
 
 Network effects are another reason WeChat became so difficult to challenge. A simple network effect means a service becomes more valuable as more people use it. But WeChat's network effects are deeper than that. They are platform network effects, with several groups reinforcing one another at the same time.
 
@@ -128,11 +134,14 @@ The fifth layer is developer to payment system. Once developers can rely on iden
 
 This multi-layer network effect explains why later competitors face such a hard problem. They do not only need to build a better chat app, a better wallet, or a better mini-app system. They need to move users, merchants, developers, payments, habits, and trust at the same time.
 
-<figure><img src="/images/kix.1ijnox5dozuv.png" alt="Users, merchants, developers, payment systems, and local services form reinforcing loops around a central digital platform." loading="lazy" /><figcaption>Users, merchants, developers, payment systems, and local services form reinforcing loops around a central digital platform.</figcaption></figure>
+<figure>
+  <a class="figure-zoom" href="/images/kix.1ijnox5dozuv.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 2.3">
+    <img src="/images/kix.1ijnox5dozuv.png" alt="Users, merchants, developers, payment systems, and local services form reinforcing loops around a central digital platform." width="1672" height="941" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 2.3.</strong> Reinforcing platform network effects.</figcaption>
+</figure>
 
-Figure 2.3. Reinforcing Platform Network Effects
-
-2.9 The Difference Between a Normal App and a Super-App
+## 2.9 The Difference Between a Normal App and a Super-App
 
 The difference between a normal app and a super-app is not only size. It is role.
 
@@ -142,7 +151,7 @@ A super-app becomes a place where many kinds of tasks begin. It is less like a s
 
 A normal app asks the user to adapt to its one purpose. A super-app adapts to many purposes.
 
-2.10 The Costs and Risks of Super-Apps
+## 2.10 The Costs and Risks of Super-Apps
 
 Super-apps are powerful, but they are not purely positive. The same centralization that makes them convenient can also create serious costs.
 
@@ -156,7 +165,7 @@ Privacy is also a concern. A super-app can concentrate communication data, payme
 
 This is the price of the super-app model. It reduces friction by centralizing activity. But centralization always raises the question: what happens when too much of life depends on one gate?
 
-2.11 How ChatGPT Fits the Super-App Idea
+## 2.11 How ChatGPT Fits the Super-App Idea
 
 ChatGPT fits the AI super-app idea because it can become a central entry point for many kinds of digital work, while still relying on distinct tools, Apps, permissions, and human approval.
 
@@ -174,11 +183,14 @@ For example, WeChat might help a user book a hotel, buy a plane ticket, and pay.
 
 That means ChatGPT is not exactly a traditional super-app. It is closer to an AI agent platform: an intelligent layer that understands what the user wants, uses tools, and helps convert intention into completed action.
 
-<figure><img src="/images/kix.vw14d8t88wkf.png" alt="A person gives an idea to an AI workspace that coordinates a document, spreadsheet, presentation, website, code, and checklist." loading="lazy" /><figcaption>A person gives an idea to an AI workspace that coordinates a document, spreadsheet, presentation, website, code, and checklist.</figcaption></figure>
+<figure>
+  <a class="figure-zoom" href="/images/kix.vw14d8t88wkf.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 2.4">
+    <img src="/images/kix.vw14d8t88wkf.png" alt="A person gives an idea to an AI workspace that coordinates a document, spreadsheet, presentation, website, code, and checklist." width="1672" height="941" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 2.4.</strong> From intention to coordinated action.</figcaption>
+</figure>
 
-Figure 2.4. From Intention to Coordinated Action
-
-2.12 Why AI Super-Apps May Become Important
+## 2.12 Why AI Super-Apps May Become Important
 
 AI super-apps may become important because modern work is fragmented.
 

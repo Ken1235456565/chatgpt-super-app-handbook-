@@ -42,9 +42,9 @@ export default defineConfig({
         { tag: 'meta', attrs: { name: 'theme-color', content: '#111827' } },
         { tag: 'meta', attrs: { property: 'og:type', content: 'website' } },
         { tag: 'meta', attrs: { property: 'og:site_name', content: 'Understanding ChatGPT' } },
+        { tag: 'script', attrs: { src: '/scripts/figure-lightbox.js', defer: true } },
       ],
     }),
     sitemap(),
   ],
 });
-

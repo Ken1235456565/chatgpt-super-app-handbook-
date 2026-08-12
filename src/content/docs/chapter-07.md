@@ -14,31 +14,31 @@ A quick prototype may not need a repository. A maintained product usually benefi
 
 AI assistance is most useful in early product work when it turns a vague intention into a clearer problem, audience, workflow, and decision. It does not remove the human product role. Humans still decide which problem matters, who the user is, what tradeoffs are acceptable, and what should be launched. Use the working-mode distinction in [Chapter 1](/chapter-01/#11-chatgpt-in-plain-english) when the project moves from planning into software implementation.
 
-7.1 From Idea to Buildable Product
+## 7.1 From Idea to Buildable Product
 
 A raw idea is usually not yet a product. “I want a website for my business,” “I want an app for my students,” or “I want to automate this workflow” must be translated into users, tasks, inputs, outputs, constraints, and proof of success. ChatGPT can help by asking product questions before it starts building: Who will use this? What are they trying to accomplish? What do they do today? What information do they need to provide? What does success look like? What must happen if something fails?
 
 When the human already knows exactly what to build, ChatGPT should act like an execution partner. Give it the goal, audience, technical stack, pages, data model, constraints, and acceptance checks. When the human only has a direction, ChatGPT should act like a peer product collaborator and propose options. When the human is unsure what the product should be, ChatGPT should use reverse prompting: ask questions, summarize the answers, expose assumptions, and turn imperfect human language into a clear product brief.
 
-7.2 Website, App, or Automation: Choosing the Right Form
+## 7.2 Website, App, or Automation: Choosing the Right Form
 
 Many ideas do not need a custom app. A brochure site may need WordPress, Webflow, Wix, Squarespace, or a static site. A lead-capture workflow may need a form, a spreadsheet, a CRM, and an email sequence. A repeated internal process may need an Airtable base, a Google Sheet, a small Python script, or a Slack workflow. A true app is justified when users need repeated interaction, accounts, permissions, saved state, complex data, or a custom experience that existing tools cannot provide.
 
 ChatGPT can compare forms by speed, cost, maintenance, user experience, integration needs, data risk, and team skill. A simple decision rule helps: use a website when the main job is explanation and conversion; use an app when the main job is repeated use and stateful interaction; use automation when the main job is reducing repetitive work; use an internal tool when the main job is operational visibility and control.
 
-7.3 Working Like a Product Manager With ChatGPT
+## 7.3 Working Like a Product Manager With ChatGPT
 
 The strongest product workflow begins with a problem, not a technology stack. A human product manager defines the user, problem, business reason, scope, and decision criteria. ChatGPT can then help generate a product requirements document, user stories, edge cases, priorities, open questions, release phases, risk notes, and test scenarios.
 
 A useful product prompt is: “Act as my product partner. Before proposing screens or code, ask the questions needed to understand the user, workflow, business goal, data, constraints, and launch risk. Then turn my answers into an MVP scope, a later roadmap, and acceptance criteria.” This is especially important when the human’s first description is imprecise. ChatGPT should not punish unclear expression; it should help make the expression clearer.
 
-7.4 Turning Requirements Into Specs, Screens, and Tasks
+## 7.4 Turning Requirements Into Specs, Screens, and Tasks
 
 Requirements become buildable when they are translated into three layers: a spec, a screen map, and a task plan. The spec explains what the system does and does not do. The screen map explains how the user moves through the experience. The task plan explains what a builder should implement, verify, and review.
 
 ChatGPT can turn a short idea into a product brief, user flows, requirements, states, validation rules, risks, and test cases. Figma can hold design intent, GitHub or Linear can hold tasks, and Vercel can provide preview deployments. When the work enters a real codebase, Codex can keep design, implementation, tests, and delivery artifacts aligned.
 
-7.5 Building With Sites
+## 7.5 Building With Sites
 
 For projects using Sites, begin with the definition and publishing model in [Chapter 3](/chapter-03/#37-creating-and-publishing-with-sites). Describe the audience, purpose, required behavior, information sources, authentication, durable data, and uploaded-file needs before building.
 

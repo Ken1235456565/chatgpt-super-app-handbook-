@@ -20,9 +20,12 @@ The simplest formula is: goal, context, constraints, output, verification. Figur
 
 The goal tells ChatGPT what you want to accomplish. The context tells it what situation it is working in. The constraints tell it what must not change, what style to follow, what tools to use, or what risks to avoid. The output tells it what finished work should look like. Verification tells it how the result should be checked.
 
-<figure><img src="/images/kix.s3m1ypkr2vez.png" alt="Illustration from the source document" loading="lazy" /><figcaption>Illustration from the source document</figcaption></figure>
-
-Figure 4.1. A ChatGPT work order turns a vague request into a checkable path from goal to verification.
+<figure>
+  <a class="figure-zoom" href="/images/kix.s3m1ypkr2vez.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 4.1">
+    <img src="/images/kix.s3m1ypkr2vez.png" alt="A ChatGPT work order connects a goal, context, constraints, output, and verification." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 4.1.</strong> A ChatGPT work order turns a vague request into a checkable path from goal to verification.</figcaption>
+</figure>
 
 For a beginner, this formula can be plain English: "Help me improve this chapter for readers who are new to AI. Keep the tone friendly. Do not make it too technical. Give me a revised version and explain the main changes." That is already a strong instruction because it names the task, audience, tone, boundary, and output.
 
@@ -48,9 +51,12 @@ Context is not a pile of information. It is the information ChatGPT needs to mak
 
 A useful way to provide context is in layers. Figure 4.2 presents those layers from broad purpose to concrete evidence. The first layer is purpose: why the task matters. The second layer is audience: who will read, use, or judge the result. The third layer is source material: files, notes, examples, code, screenshots, or requirements. The fourth layer is preference: tone, style, format, depth, and boundaries. The fifth layer is evidence: tests, screenshots, citations, commands, or review criteria.
 
-<figure><img src="/images/kix.99236tfb5ndb.png" alt="Illustration from the source document" loading="lazy" /><figcaption>Illustration from the source document</figcaption></figure>
-
-Figure 4.2. Context becomes easier to manage when it is layered from purpose to evidence.
+<figure>
+  <a class="figure-zoom" href="/images/kix.99236tfb5ndb.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 4.2">
+    <img src="/images/kix.99236tfb5ndb.png" alt="Context layers progress from purpose and audience to source material, preferences, and evidence." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 4.2.</strong> Context becomes easier to manage when it is layered from purpose to evidence.</figcaption>
+</figure>
 
 A beginner might say: "I am writing a beginner guide for people who have heard of ChatGPT but not ChatGPT. The tone should be clear and encouraging. Please avoid heavy jargon. Use examples from school, work, and daily life." That gives ChatGPT enough context to choose examples and vocabulary.
 
@@ -88,9 +94,12 @@ Example: "Summarize this bug for our product manager in plain language, then pro
 
 These patterns are not rigid templates. Figure 4.3 compares them as mental models. They help you decide how much uncertainty ChatGPT should resolve, how much authority it has to act, and how much evidence it must provide before you trust the result.
 
-<figure><img src="/images/kix.u5wgw05b4nca.png" alt="Illustration from the source document" loading="lazy" /><figcaption>Illustration from the source document</figcaption></figure>
-
-Figure 4.3. Beginners, technical users, and mixed teams need different prompting patterns because they carry different kinds of risk.
+<figure>
+  <a class="figure-zoom" href="/images/kix.u5wgw05b4nca.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 4.3">
+    <img src="/images/kix.u5wgw05b4nca.png" alt="Prompting patterns compared for beginners, technical users, and mixed teams." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 4.3.</strong> Beginners, technical users, and mixed teams need different prompting patterns because they carry different kinds of risk.</figcaption>
+</figure>
 
 ## 4.6 Working Across Languages: English, Native Languages, and Bilingual Prompts
 
@@ -106,9 +115,12 @@ Non-native English users should not assume that better English always means bett
 
 When precision matters, ask ChatGPT to check meaning instead of merely translating words. A useful prompt is: "Translate this into natural English, but first identify any ambiguous phrases in the original language that could change the technical meaning." This turns translation into clarification.
 
-<figure><img src="/images/kix.22fon7v7odmd.png" alt="Illustration from the source document" loading="lazy" /><figcaption>Illustration from the source document</figcaption></figure>
-
-Figure 4.4. A multilingual workflow separates meaning, technical terms, and final output language.
+<figure>
+  <a class="figure-zoom" href="/images/kix.22fon7v7odmd.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 4.4">
+    <img src="/images/kix.22fon7v7odmd.png" alt="A multilingual workflow separates source meaning, technical terms, and final output language." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 4.4.</strong> A multilingual workflow separates meaning, technical terms, and final output language.</figcaption>
+</figure>
 
 ## 4.7 Ask for Plans, Drafts, Examples, and Finished Work
 
@@ -138,9 +150,12 @@ Non-English users can correct language and meaning separately. For example: "The
 
 The feedback loop should get tighter over time. Figure 4.5 shows the loop: first result, review, correction, verification, revision. Each loop should remove uncertainty. If each loop creates new confusion, stop and ask ChatGPT to restate the goal, assumptions, and current plan before continuing.
 
-<figure><img src="/images/kix.pi7mibo6lea2.png" alt="Illustration from the source document" loading="lazy" /><figcaption>Illustration from the source document</figcaption></figure>
-
-Figure 4.5. Specific correction gives ChatGPT a path from plausible output to verified improvement.
+<figure>
+  <a class="figure-zoom" href="/images/kix.pi7mibo6lea2.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 4.5">
+    <img src="/images/kix.pi7mibo6lea2.png" alt="Feedback loop from first result through review, correction, verification, and revision." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 4.5.</strong> Specific correction gives ChatGPT a path from plausible output to verified improvement.</figcaption>
+</figure>
 
 ## 4.9 Build Conversations Step by Step
 
