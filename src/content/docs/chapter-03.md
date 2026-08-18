@@ -20,7 +20,7 @@ Begin in Chat when the outcome is a question, explanation, or idea you can revie
   <a class="figure-zoom" href="/images/gpt-chat.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.1">
     <img src="/images/gpt-chat.png" alt="ChatGPT application with Chat selected, the Chat and Work switcher visible, and the application menu offering ChatGPT or Codex." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.1.</strong> Chat is the conversation-oriented starting point; the application menu provides the path to Codex. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.1.</strong> Chat is the conversation-oriented starting point; the application menu provides the path to Codex.</figcaption>
 </figure>
 
 ## 3.2 Separate Distinct Outcomes
@@ -43,7 +43,7 @@ Work makes the project and connected-capability choices visible around the task 
   <a class="figure-zoom" href="/images/gpt-work.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.2">
     <img src="/images/gpt-work.png" alt="ChatGPT Work view with a task composer, project chooser, Plugins control, access indicator, and model selector." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.2.</strong> Work brings project context, Plugins, access, and model choices together around a task. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.2.</strong> Work brings project context, Plugins, access, and model choices together around a task.</figcaption>
 </figure>
 
 A Project organizes context; it does not grant authority. Apply the canonical permission and sandbox guidance in [Chapter 13](/chapter-13/#1312-permissions-sandboxes-and-cross-cutting-checks).
@@ -66,7 +66,7 @@ The Plugins page separates installed capabilities from items available to add. I
   <a class="figure-zoom" href="/images/gpt-chat-plugin.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.3">
     <img src="/images/gpt-chat-plugin.png" alt="ChatGPT Plugins page showing installed capabilities, featured Plugins, and a Create menu for Plugins, marketplaces, and skills." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.3.</strong> The Plugins page is the discovery and creation surface for reusable capabilities. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.3.</strong> The Plugins page is the discovery and creation surface for reusable capabilities.</figcaption>
 </figure>
 
 Settings provides separate views for Plugins, Apps, and MCP servers. Use these views to confirm what is enabled before a task depends on it.
@@ -75,21 +75,21 @@ Settings provides separate views for Plugins, Apps, and MCP servers. Use these v
   <a class="figure-zoom" href="/images/gpt-chat-plugin-setting-plugin.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.4">
     <img src="/images/gpt-chat-plugin-setting-plugin.png" alt="ChatGPT Plugin settings with the Plugins tab selected and enable or disable controls for installed Plugins." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.4.</strong> The Plugins tab controls which installed Plugin bundles are enabled. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.4.</strong> The Plugins tab controls which installed Plugin bundles are enabled.</figcaption>
 </figure>
 
 <figure>
   <a class="figure-zoom" href="/images/gpt-chat-plugin-setting-apps.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.5">
     <img src="/images/gpt-chat-plugin-setting-apps.png" alt="ChatGPT Plugin settings with the Apps tab selected and enable or disable controls for connected app integrations." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.5.</strong> The Apps tab lists task-specific integrations that can be enabled for ChatGPT. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.5.</strong> The Apps tab lists task-specific integrations that can be enabled for ChatGPT.</figcaption>
 </figure>
 
 <figure>
   <a class="figure-zoom" href="/images/gpt-chat-plugin-setting-mcp.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.6">
     <img src="/images/gpt-chat-plugin-setting-mcp.png" alt="ChatGPT Plugin settings with the MCPs tab selected, standalone MCP servers, and MCP servers supplied by Plugins." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.6.</strong> The MCPs tab distinguishes directly configured servers from servers supplied by installed Plugins. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.6.</strong> The MCPs tab distinguishes directly configured servers from servers supplied by installed Plugins.</figcaption>
 </figure>
 
 ## 3.7 Creating and Publishing With Sites
@@ -102,14 +102,14 @@ Open Sites from the navigation to review existing sites, inspect sharing state, 
   <a class="figure-zoom" href="/images/gpt-chat-site-dashboard.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.7">
     <img src="/images/gpt-chat-site-dashboard.png" alt="ChatGPT Sites dashboard with a search field, an existing site, its sharing state, and a Create button." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.7.</strong> The Sites dashboard lists saved sites and their current sharing state. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.7.</strong> The Sites dashboard lists saved sites and their current sharing state.</figcaption>
 </figure>
 
 <figure>
   <a class="figure-zoom" href="/images/gpt-chat-site-build.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.8">
     <img src="/images/gpt-chat-site-build.png" alt="ChatGPT Work composer with Sites selected and a prompt beginning with Create a website that." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.8.</strong> Selecting Sites in Work turns the task composer into the starting point for a website brief. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.8.</strong> Selecting Sites in Work turns the task composer into the starting point for a website brief.</figcaption>
 </figure>
 
 Sites separates saving a version from deploying it. Treat every deployment URL as a production deployment. When review is required, save a version without deploying it; then inspect content, links, forms, authentication, permissions, data behavior, and sensitive information before publishing.
@@ -124,14 +124,14 @@ The Scheduled page provides suggested recurring tasks and a searchable list of c
   <a class="figure-zoom" href="/images/gpt-chat-scheduled.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.9">
     <img src="/images/gpt-chat-scheduled.png" alt="ChatGPT Scheduled tasks page with search, a Create menu, and suggestions for a daily brief, weekly review, and follow-up monitor." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.9.</strong> Scheduled is the central place to create, find, and review recurring tasks. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.9.</strong> Scheduled is the central place to create, find, and review recurring tasks.</figcaption>
 </figure>
 
 <figure>
   <a class="figure-zoom" href="/images/gpt-chat-scheduled-daily.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.10">
     <img src="/images/gpt-chat-scheduled-daily.png" alt="Daily brief scheduled task details showing its prompt, destination, project, model, reasoning level, weekday frequency, time, and notifications." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.10.</strong> A scheduled task's detail view keeps its instructions and run settings together for review. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.10.</strong> A scheduled task's detail view keeps its instructions and run settings together for review.</figcaption>
 </figure>
 
 Test a prompt manually before scheduling it. Review the first runs and define when the task should stop, report uncertainty, or ask for human input. A local task also depends on its required machine and project resources remaining available.
@@ -146,7 +146,7 @@ Codex begins from an explicit project boundary. Select only the folder or Git re
   <a class="figure-zoom" href="/images/codex.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 3.11">
     <img src="/images/codex.png" alt="Codex workspace with navigation for chats, pull requests, Sites, Scheduled, and Plugins, plus a task composer with project, access, and model controls." width="2248" height="1436" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 3.11.</strong> Codex organizes coding work around a selected project and an explicit task. Screenshot provided by the author, August 18, 2026.</figcaption>
+  <figcaption><strong>Figure 3.11.</strong> Codex organizes coding work around a selected project and an explicit task.</figcaption>
 </figure>
 
 ## 3.10 Moving From Questions to Finished Work
