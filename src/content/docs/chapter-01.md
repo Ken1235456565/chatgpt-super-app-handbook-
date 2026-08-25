@@ -66,6 +66,34 @@ Use a supported ChatGPT access point that fits the task and the policies of your
 
 Before beginning, identify the intended outcome, required context, tools, and review method. [Chapter 3](/chapter-03/) explains Projects, files, connected capabilities, publishing, and recurring work without relying on a specific interface layout.
 
+### Choosing a ChatGPT Plan
+
+Pricing below was checked on **August 25, 2026** and reflects United States list prices in USD before applicable tax. Availability, local currency, mobile-app billing, promotions, features, and usage limits can vary by region and may change. Verify the current offer on the [official ChatGPT pricing page](https://chatgpt.com/pricing/?type=standard) before purchasing. API usage is billed separately and is not included in this comparison.
+
+<figure>
+  <a class="figure-zoom" href="/images/kix.h2d6f9a3c7e1.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.3">
+    <img src="/images/kix.h2d6f9a3c7e1.png" alt="Composite of ChatGPT pricing screens showing Free at zero dollars, Go at eight dollars, Plus at twenty dollars, Pro at one hundred or two hundred dollars, Business Standard and Premium seat prices, and custom Enterprise pricing." width="2400" height="1500" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 1.3.</strong> ChatGPT individual and Business prices shown in the author's account on August 25, 2026. Prices and availability may change.</figcaption>
+</figure>
+
+| Plan | Current US list price | Best fit |
+| --- | --- | --- |
+| Free | $0/month | First-time or occasional users learning what ChatGPT can do. |
+| Go | $8/month | Budget-conscious individuals who mainly need longer conversations, more uploads, more image creation, and longer memory than Free. This plan may include ads. |
+| Plus | $20/month | Individuals doing regular advanced writing, research, analysis, image work, or coding who need stronger reasoning and expanded access to tools such as Codex. |
+| Pro 5× | $100/month | Frequent individual users running substantial research or coding projects who regularly reach Plus limits but do not need the highest allowance. |
+| Pro 20× | $200/month | Heavy daily users running demanding or parallel workflows who need the highest individual usage allowance. |
+| Business Standard | $20/user/month when billed annually; $25 monthly | Teams of at least two people that need a secure shared workspace, centralized billing, administration, company context, and business-data protections. |
+| Business Premium | $100/user/month when billed annually; $125 monthly | The heaviest users inside a Business workspace who need 5× Standard usage and no five-hour usage limit. Rollout or eligibility may apply. |
+| Enterprise | Custom pricing | Larger organizations that need contracted support, advanced identity and security controls, governance, or custom commercial terms. |
+
+The simplest choice is to start at the lowest tier that supports the work you actually do. Stay on Free while you are learning. Choose Go when Free feels restrictive but your work still centers on everyday conversation, uploads, images, and memory. Choose Plus when advanced reasoning, deep research, Codex, or regular professional work matters. Move to Pro only after your real usage repeatedly reaches Plus limits. Choose Business for shared company work and administration, not merely because several people happen to use ChatGPT. Enterprise is a procurement and governance decision rather than a normal individual upgrade.
+
+OpenAI describes Go as the lower-cost bridge between Free and Plus, while the current Pro tiers separate substantial 5× usage from the highest 20× allowance. Business pricing is per user and uses different annual and monthly rates. See OpenAI's official explanations of [ChatGPT Go](https://openai.com/index/introducing-chatgpt-go/), [the two Pro tiers](https://help.openai.com/en/articles/9793128/), and [Business seat pricing](https://openai.com/index/premium-seats-chatgpt-business/) for the current details.
+
+At the time of writing, Claude's public individual lineup moves from Free to Pro at $20 per month ($17 per month as an annual-subscription equivalent), then to Max from $100. Anthropic does not currently offer an $8 paid individual tier. ChatGPT Go therefore provides a lower paid entry point and can be more budget-friendly for someone who has outgrown a free plan but does not need a $20 advanced tier. This is a narrow price comparison, not a claim that one product is always better: compare the features and limits that matter to your work on [Anthropic's official pricing page](https://www.anthropic.com/pricing?subjects=claude&type=product).
+
 
 ## 1.4 What You Need Before Using ChatGPT
 
@@ -136,10 +164,10 @@ It can also make factual mistakes. It can misunderstand a file. It can choose th
 None of this makes ChatGPT useless. It simply means you should use it the way skilled people use powerful tools: with attention.
 
 <figure>
-  <a class="figure-zoom" href="/images/kix.c5f9a3d7e1b4.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.3">
+  <a class="figure-zoom" href="/images/kix.c5f9a3d7e1b4.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.4">
     <img src="/images/kix.c5f9a3d7e1b4.png" alt="Risk guide grouping tasks into good starting tasks, tasks that need careful verification, and high-stakes decisions that require human authority." width="1920" height="930" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 1.3.</strong> Increase verification and qualified human review as errors become harder to detect, more costly, or difficult to reverse.</figcaption>
+  <figcaption><strong>Figure 1.4.</strong> Increase verification and qualified human review as errors become harder to detect, more costly, or difficult to reverse.</figcaption>
 </figure>
 
 ## 1.7 How Beginners Should Approach ChatGPT
@@ -181,10 +209,10 @@ How can you help me get closer to these goals? What tasks can you do for me?
 This flips the usual dynamic. Instead of assuming you already know how to use ChatGPT, you let ChatGPT help map the possibility space.
 
 <figure>
-  <a class="figure-zoom" href="/images/kix.f18bplqpy9dn.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.4">
+  <a class="figure-zoom" href="/images/kix.f18bplqpy9dn.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.5">
     <img src="/images/kix.f18bplqpy9dn.png" alt="Diagram comparing straight prompting with reverse prompting." width="1672" height="941" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 1.4.</strong> Straight prompting gives ChatGPT a task; reverse prompting asks ChatGPT to first learn about the user's goals.</figcaption>
+  <figcaption><strong>Figure 1.5.</strong> Straight prompting gives ChatGPT a task; reverse prompting asks ChatGPT to first learn about the user's goals.</figcaption>
 </figure>
 
 Reverse prompting is especially helpful because the relationship between human and AI can be complex. Sometimes the human is the expert and the AI is filling in details. Other times the AI has a broader view of possible workflows than the beginner does. In those moments, the best prompt is not a command. It is an invitation:
@@ -226,8 +254,8 @@ The technical threshold follows the same pattern. A beginner can use ChatGPT for
 The best choice is not the tool with the longest feature list. It is the tool whose operating model matches the user's skills and risk tolerance. A non-programmer or mixed-work user may prefer ChatGPT's broader workspace. A terminal-oriented engineer may prefer Claude Code's configurable precision. A developer coordinating editor, terminal, and browser tasks may prefer Antigravity's integrated agent experience. In every case, convenience should increase gradually with trust: begin with a limited workspace, keep important work under version control, maintain backups, inspect proposed changes, and reserve full access for situations where it is truly necessary.
 
 <figure>
-  <a class="figure-zoom" href="/images/kix.8e2oly9rxw1s.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.5">
+  <a class="figure-zoom" href="/images/kix.8e2oly9rxw1s.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.6">
     <img src="/images/kix.8e2oly9rxw1s.png" alt="Tool comparison presented inside ChatGPT and organized by safety, convenience, and technical threshold." width="1672" height="941" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 1.5.</strong> A tool comparison presented inside ChatGPT, organized by safety, convenience, and technical threshold.</figcaption>
+  <figcaption><strong>Figure 1.6.</strong> A tool comparison presented inside ChatGPT, organized by safety, convenience, and technical threshold.</figcaption>
 </figure>

@@ -86,8 +86,9 @@ The following decisions were approved after the Phase 1 audit:
 | --- | --- | --- |
 | Learning paths | Chapter 5.11 | Link from orientation or role-specific chapters |
 | ChatGPT/Codex distinction | Chapter 1.1 | Refer to the distinction without redefining it |
+| Current ChatGPT plan selection | Chapter 1.3 | Keep the comparison date-stamped, link to official pricing, and distinguish individual subscriptions from Business seats and API usage |
 | Permissions and authorization boundaries | Chapter 13 | Keep only domain-specific risk notes and link back |
 | Plugins, Sites, and Scheduled definitions | Chapter 3.6–3.8 | Describe only the chapter-specific application or risk |
 | Test authenticity and false verification | Chapter 6.10 | Keep beginner summary in Chapter 5 and general evidence standard in Chapter 13 |
 
-Product pricing plans and desktop-interface descriptions are excluded from the handbook. Platform-neutral access and workflow guidance may remain.
+Desktop-interface descriptions remain excluded from the handbook. At the user's direction, Chapter 1.3 may include a concise, date-stamped pricing and plan-selection guide based on current official sources and clearly labeled screenshots; other chapters should link to it instead of repeating prices. Platform-neutral access and workflow guidance may remain.

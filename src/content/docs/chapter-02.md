@@ -16,7 +16,7 @@ A normal app usually does one main job. A messaging app helps you send messages.
 
 An International Student's Two Super-Apps
 
-As a Chinese international student in the United States, Max Li experienced the super-app idea before he had a name for it. WeChat remained the easiest way to stay connected with family and old friends in China. Family conversations, classmate groups, voice messages, photos, red envelopes, and practical updates all arrived through the same familiar account, even when the people involved were separated by thousands of miles and several time zones.
+As a Chinese international student in the United States, Keny experienced the super-app idea before he had a name for it. WeChat remained the easiest way to stay connected with family and old friends in China. Family conversations, classmate groups, voice messages, photos, red envelopes, and practical updates all arrived through the same familiar account, even when the people involved were separated by thousands of miles and several time zones.
 
 The contrast became clearer whenever he returned to China or needed to handle a China-based task. A restaurant menu, train service, hospital registration page, store membership, bill payment, or local booking could open as a mini-program inside WeChat. There was often no need to search an app store, create another password, or learn a new payment process. In the United States, the same sequence might require separate messaging, banking, shopping, transportation, and service apps.
 
