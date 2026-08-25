@@ -18,6 +18,13 @@ The distinction is about the work, not the user's identity. A task can begin as 
 
 The active project, supplied files, available tools, and current instructions determine what either agent can use. [Chapter 13](/chapter-13/#1312-permissions-sandboxes-and-cross-cutting-checks) owns the full explanation of permissions, sandboxes, and review boundaries.
 
+<figure>
+  <a class="figure-zoom" href="/images/kix.m4a7d2c9f1be.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.1">
+    <img src="/images/kix.m4a7d2c9f1be.png" alt="Decision guide comparing ChatGPT as a general AI workspace with Codex as a software-development agent, including a handoff and review flow." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 1.1.</strong> Choose ChatGPT for general knowledge work and Codex for repository-based implementation, then review the evidence from either surface.</figcaption>
+</figure>
+
 ## 1.2-1.3 More Than a Chatbot: Assistant, Creative Partner, and Digital Worker
 
 A chatbot gives responses. ChatGPT can help produce outcomes.
@@ -43,6 +50,13 @@ ChatGPT can operate at several levels: conversation, artifact revision, research
 Conversation still matters, but the working mode matters too. A request may ask ChatGPT to explain or draft, ask an App to retrieve approved information, or ask Codex to inspect a workspace, make code changes, run checks, and report what remains unverified.
 
 That is a different kind of computing experience.
+
+<figure>
+  <a class="figure-zoom" href="/images/kix.b8e2f6a1c4d7.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.2">
+    <img src="/images/kix.b8e2f6a1c4d7.png" alt="Five working levels move from conversation and artifact revision through research, connected information, and tool-assisted execution, with human responsibility across all levels." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 1.2.</strong> ChatGPT can move from conversation toward tool-assisted execution, while the human continues to set goals, approve access, and review results.</figcaption>
+</figure>
 
 For current official examples of the Codex project and task interfaces, continue to [Chapter 3](/chapter-03/).
 
@@ -121,6 +135,13 @@ It can also make factual mistakes. It can misunderstand a file. It can choose th
 
 None of this makes ChatGPT useless. It simply means you should use it the way skilled people use powerful tools: with attention.
 
+<figure>
+  <a class="figure-zoom" href="/images/kix.c5f9a3d7e1b4.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.3">
+    <img src="/images/kix.c5f9a3d7e1b4.png" alt="Risk guide grouping tasks into good starting tasks, tasks that need careful verification, and high-stakes decisions that require human authority." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 1.3.</strong> Increase verification and qualified human review as errors become harder to detect, more costly, or difficult to reverse.</figcaption>
+</figure>
+
 ## 1.8 How Beginners Should Approach ChatGPT
 
 The beginner's mistake is thinking you need the perfect prompt.
@@ -160,10 +181,10 @@ How can you help me get closer to these goals? What tasks can you do for me?
 This flips the usual dynamic. Instead of assuming you already know how to use ChatGPT, you let ChatGPT help map the possibility space.
 
 <figure>
-  <a class="figure-zoom" href="/images/kix.f18bplqpy9dn.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.1">
+  <a class="figure-zoom" href="/images/kix.f18bplqpy9dn.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.4">
     <img src="/images/kix.f18bplqpy9dn.png" alt="Diagram comparing straight prompting with reverse prompting." width="1672" height="941" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 1.1.</strong> Straight prompting gives ChatGPT a task; reverse prompting asks ChatGPT to first learn about the user's goals.</figcaption>
+  <figcaption><strong>Figure 1.4.</strong> Straight prompting gives ChatGPT a task; reverse prompting asks ChatGPT to first learn about the user's goals.</figcaption>
 </figure>
 
 Reverse prompting is especially helpful because the relationship between human and AI can be complex. Sometimes the human is the expert and the AI is filling in details. Other times the AI has a broader view of possible workflows than the beginner does. In those moments, the best prompt is not a command. It is an invitation:
@@ -205,8 +226,8 @@ The technical threshold follows the same pattern. A beginner can use ChatGPT for
 The best choice is not the tool with the longest feature list. It is the tool whose operating model matches the user's skills and risk tolerance. A non-programmer or mixed-work user may prefer ChatGPT's broader workspace. A terminal-oriented engineer may prefer Claude Code's configurable precision. A developer coordinating editor, terminal, and browser tasks may prefer Antigravity's integrated agent experience. In every case, convenience should increase gradually with trust: begin with a limited workspace, keep important work under version control, maintain backups, inspect proposed changes, and reserve full access for situations where it is truly necessary.
 
 <figure>
-  <a class="figure-zoom" href="/images/kix.8e2oly9rxw1s.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.2">
+  <a class="figure-zoom" href="/images/kix.8e2oly9rxw1s.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.5">
     <img src="/images/kix.8e2oly9rxw1s.png" alt="Tool comparison presented inside ChatGPT and organized by safety, convenience, and technical threshold." width="1672" height="941" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 1.2.</strong> A tool comparison presented inside ChatGPT, organized by safety, convenience, and technical threshold.</figcaption>
+  <figcaption><strong>Figure 1.5.</strong> A tool comparison presented inside ChatGPT, organized by safety, convenience, and technical threshold.</figcaption>
 </figure>

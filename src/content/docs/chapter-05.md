@@ -22,6 +22,13 @@ For a beginner, it helps to think in layers. Content is what people read or see.
 
 AI assistance can translate between human intention and technical structure. You can describe a page, workflow, or error in ordinary language, then connect that description to project files, commands, and reviewable behavior.
 
+<figure>
+  <a class="figure-zoom" href="/images/kix.e9b3d7a1f5c8.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 5.1">
+    <img src="/images/kix.e9b3d7a1f5c8.png" alt="Five stacked digital-product layers: content, design, logic, data, and hosting, each paired with a plain-English explanation." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 5.1.</strong> Websites and apps combine five recurring layers: content, design, logic, data, and hosting.</figcaption>
+</figure>
+
 ## 5.2 Why Non-Programmers Can Still Build With AI
 
 Many useful technical tasks begin as ordinary human goals: publish a page, rename files, clean a spreadsheet, automate a repeated step, or fix visible behavior. The first skill is describing the desired outcome and recognizing evidence, not memorizing syntax.
@@ -29,6 +36,13 @@ Many useful technical tasks begin as ordinary human goals: publish a page, renam
 The safest ladder usually begins with explanations and visual tools, moves through templates and small snippets, then reaches a local practice project before touching production systems.
 
 Start where mistakes are cheap: a practice site, copied page, static prototype, personal portfolio, small script, or toy app. Apply the permission and risk boundaries in [Chapter 13](/chapter-13/) before working with payments, accounts, private data, regulated workflows, security settings, or production databases.
+
+<figure>
+  <a class="figure-zoom" href="/images/kix.f1c5e9b3d7a2.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 5.2">
+    <img src="/images/kix.f1c5e9b3d7a2.png" alt="A five-step learning ladder moves from explanations and visual tools through templates and local practice to controlled production work as risk increases." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 5.2.</strong> A beginner can grow from explanations to production systems by increasing control and review at each step.</figcaption>
+</figure>
 
 ## 5.3 The Beginner Workflow: Describe, Inspect, Edit, Verify
 
@@ -41,6 +55,13 @@ Inspect before editing. Ask Codex to look at the current structure before making
 Edit in small steps. A beginner should prefer one coherent change at a time: one section, one button, one form field, one script, one automation. Small steps make learning easier and mistakes cheaper.
 
 Verify the result. If Codex changes a website, ask it to preview the page when possible and check mobile layout, links, forms, and visual spacing. If it changes code, ask it to run the relevant command or test. If it cannot verify, ask it to say that clearly and explain what you should check manually.
+
+<figure>
+  <a class="figure-zoom" href="/images/kix.a3d7f1c5e9b4.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 5.3">
+    <img src="/images/kix.a3d7f1c5e9b4.png" alt="Four-step beginner workflow: describe the outcome, inspect the current state, make the smallest coherent edit, and verify with evidence." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 5.3.</strong> Describe, inspect, edit, and verify form a repeatable loop; failed verification returns the work to inspection.</figcaption>
+</figure>
 
 ## 5.4 Asking ChatGPT to Explain Code
 
@@ -82,6 +103,13 @@ Use Codex with a local project when you need full source control, custom archite
 
 Use this combined route when you want to keep and test local source code but prefer Sites to manage saved versions, hosting, sharing, and deployment.
 
+<figure>
+  <a class="figure-zoom" href="/images/kix.b5e9a3d7f1c6.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 5.4">
+    <img src="/images/kix.b5e9a3d7f1c6.png" alt="Four website-building paths compare ChatGPT with Sites, no-code or CMS tools, a local project with hosting, and a local project with Sites." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 5.4.</strong> Website paths trade faster setup against source control, publishing flexibility, and maintenance responsibility.</figcaption>
+</figure>
+
 Every Sites deployment URL should be treated as a production deployment. When review is required, ask ChatGPT to save a version without deploying it. Review generated content, authentication, data behavior, links, forms, permissions, and sensitive information before publishing.
 
 ### Field Note: What the Penguin Post Prototype Teaches
@@ -117,6 +145,13 @@ The key is to describe input, transformation, and output. Input means what the a
 A strong beginner prompt might say: "Create a Python script that counts how many .jpg files are directly inside my Downloads folder, not including subfolders. Do not modify any files. Explain the command before running it." Another might say: "Create a small local task app with add, complete, and filter features. Use simple storage first. Do not add login, payments, or cloud deployment yet."
 
 For automations, ask for dry-run mode. Dry-run means the script shows what it would do before actually doing it. This is especially important for file renaming, deletion, uploads, email sending, or any action that affects many items.
+
+<figure>
+  <a class="figure-zoom" href="/images/kix.c7f1b5e9a3d8.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 5.5">
+    <img src="/images/kix.c7f1b5e9a3d8.png" alt="A small-script data flow moves from input through transformation and a dry-run safety checkpoint to a verified output." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 5.5.</strong> Define input, transformation, dry-run review, and output before allowing an automation to change files or records.</figcaption>
+</figure>
 
 ## 5.8 Learning Programming Through Conversation
 

@@ -151,6 +151,13 @@ A super-app becomes a place where many kinds of tasks begin. It is less like a s
 
 A normal app asks the user to adapt to its one purpose. A super-app adapts to many purposes.
 
+<figure>
+  <a class="figure-zoom" href="/images/kix.d7a1f5c9b3e6.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 2.4">
+    <img src="/images/kix.d7a1f5c9b3e6.png" alt="Side-by-side comparison of a normal app model with separate task-specific apps and a super-app model with one shared home base connecting multiple services." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 2.4.</strong> A normal app serves one main job, while a super-app connects many services through a shared home base.</figcaption>
+</figure>
+
 ## 2.10 The Costs and Risks of Super-Apps
 
 Super-apps are powerful, but they are not purely positive. The same centralization that makes them convenient can also create serious costs.
@@ -184,10 +191,10 @@ For example, WeChat might help a user book a hotel, buy a plane ticket, and pay.
 That means ChatGPT is not exactly a traditional super-app. It is closer to an AI agent platform: an intelligent layer that understands what the user wants, uses tools, and helps convert intention into completed action.
 
 <figure>
-  <a class="figure-zoom" href="/images/kix.vw14d8t88wkf.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 2.4">
+  <a class="figure-zoom" href="/images/kix.vw14d8t88wkf.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 2.5">
     <img src="/images/kix.vw14d8t88wkf.png" alt="A person gives an idea to an AI workspace that coordinates a document, spreadsheet, presentation, website, code, and checklist." width="1672" height="941" loading="lazy" decoding="async" />
   </a>
-  <figcaption><strong>Figure 2.4.</strong> From intention to coordinated action.</figcaption>
+  <figcaption><strong>Figure 2.5.</strong> From intention to coordinated action.</figcaption>
 </figure>
 
 ## 2.12 Why AI Super-Apps May Become Important
