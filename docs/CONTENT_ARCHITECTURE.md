@@ -4,6 +4,8 @@
 
 Keep the existing 14 top-level chapters. Add requested Codex material as sections inside the chapter that owns the reader's question. Create a new top-level chapter only after explicit approval.
 
+The homepage may include a supplementary author preface after its reader-path and handbook-overview content. The preface provides origin and authorship context; it does not replace a chapter or become a competing table of contents.
+
 Use an `Overview` section when it does real orientation work: it should define the topic, identify the intended reader, explain the section sequence, and point to a concrete outcome. Do not add an empty or repetitive `Overview` before every subsection.
 
 ## Reader paths

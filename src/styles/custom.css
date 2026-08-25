@@ -145,6 +145,59 @@ header.header {
 .chapter-bands span { font-weight: 760; }
 .chapter-bands small { color: var(--sl-color-gray-3); }
 
+.preface {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.35fr) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  margin: 2rem 0 5rem;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  scroll-margin-top: 5rem;
+  border: 1px solid var(--sl-color-hairline-light);
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(155deg, color-mix(in srgb, var(--sl-color-accent) 9%, transparent), transparent 38%),
+    color-mix(in srgb, var(--sl-color-bg) 96%, var(--sl-color-white) 4%);
+}
+
+.preface-header h2 {
+  margin-top: 0.7rem;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  letter-spacing: -0.045em;
+}
+
+.preface-body {
+  max-width: 48rem;
+  color: var(--sl-color-gray-2);
+  font-size: 1.02rem;
+  line-height: 1.78;
+}
+
+.preface-body > :first-child { margin-top: 0; }
+.preface-lead { color: inherit; font-size: clamp(1.15rem, 2vw, 1.35rem); line-height: 1.65; }
+
+.author-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+  font-style: normal;
+}
+
+.author-list > span {
+  display: flex;
+  min-width: 0;
+  padding: 1rem;
+  flex-direction: column;
+  gap: 0.3rem;
+  border: 1px solid var(--sl-color-hairline-light);
+  border-radius: 0.85rem;
+  background: color-mix(in srgb, var(--sl-color-bg) 91%, var(--sl-color-white) 9%);
+}
+
+.author-list strong { color: inherit; }
+.author-list a { overflow-wrap: anywhere; font-size: 0.86rem; }
+.author-list small { color: var(--sl-color-gray-3); line-height: 1.45; }
+
 .source-note {
   max-width: 45rem;
   margin: 0 auto 4rem;
@@ -279,10 +332,11 @@ header.header {
 html:has(.figure-lightbox[open]) { overflow: hidden; }
 
 @media (max-width: 50rem) {
-  .path-grid, .capability-map { grid-template-columns: 1fr; }
+  .path-grid, .capability-map, .preface { grid-template-columns: 1fr; }
   .capability-map li { grid-template-columns: 2rem 6.5rem 1fr; }
   .chapter-bands a { grid-template-columns: 4.5rem 1fr; }
   .chapter-bands small { grid-column: 2; }
+  .author-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 30rem) {

@@ -13,6 +13,10 @@ hero:
       link: https://docs.google.com/document/d/1h-7OtxJBAktYswMUojZBh2NJ2gB9SaNH0hhRCtcb1po/edit
       icon: external
       variant: minimal
+    - text: Read the preface
+      link: '#preface'
+      icon: down-arrow
+      variant: minimal
 sidebar:
   hidden: true
 ---
@@ -58,5 +62,35 @@ import { Badge, LinkCard } from '@astrojs/starlight/components';
   <a href="/chapter-13/"><b>13–14</b><span>Trust and direction</span><small>Responsible use and the future of AI super-apps</small></a>
 </div>
 
-<p class="source-note">This website is a reading edition of the linked Google document. Use the source document when you need the latest editorial version.</p>
+<section id="preface" class="preface" aria-labelledby="preface-title">
+  <header class="preface-header">
+    <span class="eyebrow">From the authors</span>
+    <h2 id="preface-title">Preface</h2>
+  </header>
 
+  <div class="preface-body">
+    <p class="preface-lead"><a href="https://openai.com/index/chatgpt/">ChatGPT was released on November 30, 2022</a>. From that day forward, the world of AI changed forever.</p>
+
+    <p>I, Max Li, was an early user of ChatGPT. When OpenAI surveyed early users about an appropriate monthly subscription price, I suggested $50. Today, I pay only <a href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus">$20 per month</a>, plus occasional token fees. What a bargain!</p>
+
+    <p>This eBook is a collaboration among Max Li, Keny Tian, and Jingmeng Zhang. I am the founder of Grassrootech.com, a company focused on AI-powered website creation and promotion. Before founding the company, I was a professor of computer science for 17 years and worked at IBM Research for two years. I also teach AI fundamentals and Python programming at Newton Chinese Language School (NCLS). Let me share how I met my collaborators.</p>
+
+    <p>I met Keny Tian through Northeastern University’s career services department. I received a list of highly capable master’s students from Northeastern University’s College of Engineering, Multidisciplinary Graduate Engineering (MGEN) program. As I reviewed their resumes, Keny’s stood out immediately.</p>
+
+    <p>Most of the students had undergraduate degrees in computer science. Keny, however, earned an undergraduate degree in architecture in China—an unusual and intriguing background for someone pursuing work in AI. As I learned more, I discovered additional relevant professional experience and a combination of skills that made Keny an ideal co-author. Keny is the lead author of many chapters in this book. Thank you, Keny, for your excellent work.</p>
+
+    <p>I have known Jingmeng Zhang since fall 2024, when she was a student in my AI fundamentals class at NCLS. I still remember her warm smile. Unlike most students, she greeted me in Chinese. I appreciated that immediately. In our informal conversations after class, she told me that she was born and raised in China, unlike my own children, who were born and raised in Florida and Tennessee. I believe she also studied Chinese at NCLS. I tried my best to teach my own children Chinese, though they did not fully appreciate those efforts at the time.</p>
+
+    <p>One day in spring 2026, I ran into Jingmeng at the school. She told me that she had finished typing all the source code from the textbook I used in my AI fundamentals class. I was amazed by her diligence. The textbook is substantial, and completing that task required a great deal of time and patience. It was written for college students, yet Jingmeng had been only a middle school student when she took my class.</p>
+
+    <p>In summer 2026, when I began thinking about writing a handbook on ChatGPT, Jingmeng immediately came to mind. When I invited her to write this eBook with me, her response was so enthusiastic that I added her name to the list of authors without hesitation.</p>
+
+    <address class="author-list" aria-label="Author contact information">
+      <span><strong>Max Li</strong><a href="mailto:max@grassrootech.com">{'max@grassrootech.com'}</a><small>Andover, Massachusetts</small></span>
+      <span><strong>Keny Tian</strong><a href="mailto:tian.kain@northeastern.edu">{'tian.kain@northeastern.edu'}</a><small>Boston, Massachusetts</small></span>
+      <span><strong>Jingmeng Zhang</strong><a href="mailto:j02002196@gmail.com">{'j02002196@gmail.com'}</a><small>Newton, Massachusetts</small></span>
+    </address>
+  </div>
+</section>
+
+<p class="source-note">This website is a reading edition of the linked Google document. Use the source document when you need the latest editorial version.</p>
