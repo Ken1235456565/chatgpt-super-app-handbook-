@@ -72,8 +72,8 @@ function header(titleText, subtitleText) {
 
 function defs() {
   return `<defs>
-    <marker id="arrowhead" markerWidth="14" markerHeight="14" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
-      <path d="M0,0 L12,6 L0,12 Z" fill="${C.blue}"/>
+    <marker id="arrowhead" markerWidth="22" markerHeight="22" refX="19" refY="10" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L20,10 L0,20 Z" fill="${C.blue}"/>
     </marker>
     <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#172033" flood-opacity="0.10"/>
@@ -138,9 +138,9 @@ function chapter1CapabilityLevels() {
     { label: 'Connected information', note: 'Retrieve approved context', color: C.orange, soft: C.orangeSoft },
     { label: 'Tool-assisted execution', note: 'Create · run · update', color: C.green, soft: C.greenSoft },
   ];
-  const cardW = 314;
-  const gap = 34;
-  const startX = 110;
+  const cardW = 300;
+  const gap = 56;
+  const startX = 98;
   const y = 260;
 
   let body = header('From Conversation to Outcomes', 'ChatGPT can move through several working levels; authority and review still stay with the human.');
@@ -151,7 +151,7 @@ function chapter1CapabilityLevels() {
     body += text(x + cardW / 2, y + 157, item.label, { size: index === 3 || index === 4 ? 27 : 30, weight: 700, fill: item.color, anchor: 'middle' });
     const noteParts = item.note.split(' · ');
     body += lines(x + cardW / 2, y + 220, noteParts, { size: 25, fill: C.muted, gap: 40, anchor: 'middle' });
-    if (index < items.length - 1) body += arrow(x + cardW + 8, y + 175, x + cardW + gap - 8, y + 175, { width: 4 });
+    if (index < items.length - 1) body += arrow(x + cardW + 10, y + 188, x + cardW + gap - 12, y + 188, { width: 4 });
   });
   body += rect(230, 690, 1460, 145, { fill: C.white, stroke: C.line, strokeWidth: 2, radius: 26 });
   body += iconBadge(310, 762, '✓', { fill: C.green, size: 29 });

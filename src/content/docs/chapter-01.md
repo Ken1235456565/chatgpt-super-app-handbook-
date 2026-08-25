@@ -25,7 +25,7 @@ The active project, supplied files, available tools, and current instructions de
   <figcaption><strong>Figure 1.1.</strong> Choose ChatGPT for general knowledge work and Codex for repository-based implementation, then review the evidence from either surface.</figcaption>
 </figure>
 
-## 1.2-1.3 More Than a Chatbot: Assistant, Creative Partner, and Digital Worker
+## 1.2 More Than a Chatbot: Assistant, Creative Partner, and Digital Worker
 
 A chatbot gives responses. ChatGPT can help produce outcomes.
 
@@ -60,14 +60,14 @@ That is a different kind of computing experience.
 
 For current official examples of the Codex project and task interfaces, continue to [Chapter 3](/chapter-03/).
 
-## 1.4 How to Access ChatGPT
+## 1.3 How to Access ChatGPT
 
 Use a supported ChatGPT access point that fits the task and the policies of your account or organization. Availability can vary by platform, account, region, and workspace policy.
 
 Before beginning, identify the intended outcome, required context, tools, and review method. [Chapter 3](/chapter-03/) explains Projects, files, connected capabilities, publishing, and recurring work without relying on a specific interface layout.
 
 
-## 1.5 What You Need Before Using ChatGPT
+## 1.4 What You Need Before Using ChatGPT
 
 Before using ChatGPT, you need an appropriate account or access path, a supported device, a concrete goal or source material, and a habit of reviewing important results.
 
@@ -77,7 +77,7 @@ You need a project or task. ChatGPT works best when it has something concrete to
 
 Finally, you need a review habit. ChatGPT can move quickly, and that is both its gift and its risk. You should read important outputs, check facts, test code, inspect files before sharing them, and pause before giving it access to sensitive data. Think of ChatGPT as a highly capable assistant whose work still needs human judgment.
 
-## 1.6 What ChatGPT Can Do Well
+## 1.5 What ChatGPT Can Do Well
 
 ChatGPT can do many things well because it has been trained on patterns of language, code, reasoning, documents, and digital work. More importantly, it can use tools. That combination gives it a practical advantage: it can connect thinking with action.
 
@@ -103,7 +103,7 @@ ChatGPT is especially good when:
 
 That last point is important. ChatGPT shines in environments where iteration is cheap. If a paragraph is awkward, it can revise it. If a test fails, it can inspect the failure and try again. If a layout is broken, it can adjust the code and re-check the page. The loop of attempt, feedback, and correction is where ChatGPT becomes powerful.
 
-## 1.7 What ChatGPT Cannot Do Reliably
+## 1.6 What ChatGPT Cannot Do Reliably
 
 ChatGPT is powerful, but it is not magic. Beginners should learn its limits early.
 
@@ -142,7 +142,7 @@ None of this makes ChatGPT useless. It simply means you should use it the way sk
   <figcaption><strong>Figure 1.3.</strong> Increase verification and qualified human review as errors become harder to detect, more costly, or difficult to reverse.</figcaption>
 </figure>
 
-## 1.8 How Beginners Should Approach ChatGPT
+## 1.7 How Beginners Should Approach ChatGPT
 
 The beginner's mistake is thinking you need the perfect prompt.
 
@@ -213,7 +213,7 @@ Start small. Stay curious. Check the work. Then gradually give ChatGPT more resp
 
 That is how ChatGPT becomes more than an app. It becomes a new way to work.
 
-## 1.9 ChatGPT, Claude, Gemini, and Specialized Coding Agents
+## 1.8 ChatGPT, Claude, Gemini, and Specialized Coding Agents
 
 ChatGPT, Claude Code, and Google Antigravity belong to the same broad generation of agentic development tools, but they do not make exactly the same tradeoffs. All three can inspect code, edit files, run commands, and help move a project from an instruction toward a working result. The practical differences are most visible in how they define safety, how much friction they place between intention and action, and how much technical knowledge they expect from the user.
 

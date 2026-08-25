@@ -331,7 +331,7 @@ No long paragraph is duplicated verbatim across different chapter files. The rep
 2. **Learning paths** — repeated in Chapters 3.11 and 5.11.
 3. **Permissions and review boundaries** — repeated across Chapters 1, 3–7, 10, 12, and 13.
 4. **Sites, Scheduled, and Plugins definitions** — introduced or redefined in Chapters 1, 3, 5, 7, 10, 13, and 14.
-5. **Tests, fake data, and verification** — repeated in Chapters 1.7, 5.10, 6.10, and 13.9.
+5. **Tests, fake data, and verification** — repeated in Chapters 1.6, 5.10, 6.10, and 13.9.
 6. **Collaboration Pattern / Field Note / Review Checklist / Handoff Prompt** — useful repeated structure, but Chapter 8, 9, 11, and 12 labels are not headings and therefore do not function consistently.
 
 Future editing should preserve short reminders where the domain changes the advice, but assign one canonical explanation and use links elsewhere.
@@ -340,13 +340,13 @@ Future editing should preserve short reminders where the domain changes the advi
 
 “Potentially stale” means “requires official verification,” not “confirmed false.”
 
-1. **Plans and prices — Chapter 1.5.** The Free, Go, Plus, Pro, Business, and Enterprise tables contain exact plan names, prices, billing terms, and capabilities.
+1. **Plans and prices — Chapter 1.4.** The Free, Go, Plus, Pro, Business, and Enterprise tables contain exact plan names, prices, billing terms, and capabilities.
 2. **Current desktop UI — Chapters 1 and 3.** Workspace selectors, Chat/Work/Quick Chat modes, sidebar labels, Projects, Pull requests, Sites, Scheduled, and Plugins may change by platform, plan, or rollout.
 3. **Plugin packaging and availability — Chapters 3, 10, 13, and 14.** Claims about skills, connectors, MCP tools, hooks, browser capabilities, supported surfaces, authentication, and templates require current documentation.
 4. **Sites behavior — Chapters 3, 5, 7, 13, and 14.** Local-project compatibility, version saving, deployment, hosting, authentication, data, analytics, and production semantics require verification.
 5. **Scheduled behavior — Chapters 3, 10, 13, and 14.** Standalone/chat runs, retained context, local-project schedules, worktrees, computer/app availability, and run states are current product details.
 6. **Codex surfaces and platform features — Chapters 3 and 6.** CLI, IDE, desktop, web/cloud, SDK, webhooks, structured output, review automation, and cloud behavior are only summarized and uncited.
-7. **Competitor comparisons — Chapter 1.9.** Claude Code and Google Antigravity capabilities and safety models are time-sensitive and need primary-source verification or removal from the OpenAI-focused guide.
+7. **Competitor comparisons — Chapter 1.8.** Claude Code and Google Antigravity capabilities and safety models are time-sensitive and need primary-source verification or removal from the OpenAI-focused guide.
 8. **Creative-production tools — Chapter 11.** HeyGen, HyperFrames, and Remotion capability statements need current primary-source verification before release.
 
 ## Copy and import defects
