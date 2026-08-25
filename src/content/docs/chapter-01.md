@@ -20,7 +20,7 @@ The active project, supplied files, available tools, and current instructions de
 
 <figure>
   <a class="figure-zoom" href="/images/kix.m4a7d2c9f1be.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.1">
-    <img src="/images/kix.m4a7d2c9f1be.png" alt="Decision guide comparing ChatGPT as a general AI workspace with Codex as a software-development agent, including a handoff and review flow." width="1920" height="930" loading="lazy" decoding="async" />
+    <img src="/images/kix.m4a7d2c9f1be.png" alt="Decision guide comparing ChatGPT as a general AI workspace with Codex as a software-development agent, followed by an evidence review." width="1920" height="930" loading="lazy" decoding="async" />
   </a>
   <figcaption><strong>Figure 1.1.</strong> Choose ChatGPT for general knowledge work and Codex for repository-based implementation, then review the evidence from either surface.</figcaption>
 </figure>
@@ -210,7 +210,7 @@ This flips the usual dynamic. Instead of assuming you already know how to use Ch
 
 <figure>
   <a class="figure-zoom" href="/images/kix.f18bplqpy9dn.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.5">
-    <img src="/images/kix.f18bplqpy9dn.png" alt="Diagram comparing straight prompting with reverse prompting." width="1672" height="941" loading="lazy" decoding="async" />
+    <img src="/images/kix.f18bplqpy9dn.png" alt="Current ChatGPT interface showing straight prompting and reverse prompting as two ways to begin a task." width="1920" height="930" loading="lazy" decoding="async" />
   </a>
   <figcaption><strong>Figure 1.5.</strong> Straight prompting gives ChatGPT a task; reverse prompting asks ChatGPT to first learn about the user's goals.</figcaption>
 </figure>
@@ -255,7 +255,7 @@ The best choice is not the tool with the longest feature list. It is the tool wh
 
 <figure>
   <a class="figure-zoom" href="/images/kix.8e2oly9rxw1s.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 1.6">
-    <img src="/images/kix.8e2oly9rxw1s.png" alt="Tool comparison presented inside ChatGPT and organized by safety, convenience, and technical threshold." width="1672" height="941" loading="lazy" decoding="async" />
+    <img src="/images/kix.8e2oly9rxw1s.png" alt="Current ChatGPT interface presenting a comparison of Codex, Claude Code, and Google Antigravity by safety, convenience, and technical threshold." width="1920" height="930" loading="lazy" decoding="async" />
   </a>
   <figcaption><strong>Figure 1.6.</strong> A tool comparison presented inside ChatGPT, organized by safety, convenience, and technical threshold.</figcaption>
 </figure>

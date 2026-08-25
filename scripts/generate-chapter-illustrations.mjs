@@ -54,6 +54,13 @@ function arrow(x1, y1, x2, y2, { color = C.blue, width = 5, dashed = false, end 
   return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${width}" stroke-linecap="round" ${dashed ? 'stroke-dasharray="12 12"' : ''} ${end ? 'marker-end="url(#arrowhead)"' : ''}/>`;
 }
 
+function lineArrow(x1, y1, x2, y2, { color = C.blue, width = 4, head = 12 } = {}) {
+  return [
+    `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${width}" stroke-linecap="round"/>`,
+    `<polyline points="${x2 - head},${y2 - head * 0.65} ${x2},${y2} ${x2 - head},${y2 + head * 0.65}" fill="none" stroke="${color}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round"/>`,
+  ].join('');
+}
+
 function pill(x, y, width, label, { fill = C.blueSoft, color = C.blue } = {}) {
   return `${rect(x, y, width, 48, { fill, stroke: fill, radius: 24 })}${text(x + width / 2, y + 33, label, { size: 22, weight: 700, fill: color, anchor: 'middle' })}`;
 }
@@ -121,9 +128,6 @@ function chapter1WorkSurface() {
       'Review diffs and failures',
     ], { size: 29, gap: 61 }),
     pill(rightX + 55, cardY + 405, 348, 'Requirements → verified code', { fill: C.blueSoft, color: C.blue }),
-
-    arrow(875, 470, 1035, 470, { color: C.blue, width: 6 }),
-    text(955, 430, 'HAND OFF', { size: 20, weight: 700, fill: C.blue, anchor: 'middle', letterSpacing: 1.5 }),
 
     rect(370, 775, 1180, 92, { fill: C.white, stroke: C.line, strokeWidth: 2, radius: 46 }),
     text(960, 831, 'Plan in ChatGPT  →  implement in Codex  →  review the evidence', { size: 30, weight: 700, fill: C.ink, anchor: 'middle' }),
@@ -382,6 +386,359 @@ function chapter5DataFlow() {
   return wrap(body);
 }
 
+function chapter1PromptingChatGPTUI() {
+  const body = [
+    defs(),
+    `<rect width="${WIDTH}" height="${HEIGHT}" fill="#F7F7F8"/>`,
+    rect(18, 18, 1884, 894, { fill: C.white, stroke: '#D7D7DA', strokeWidth: 2, radius: 22 }),
+
+    // Current ChatGPT-style window chrome and sidebar.
+    `<path d="M40 18 H356 V912 H40 Q18 912 18 890 V40 Q18 18 40 18 Z" fill="#F1F1F2"/>`,
+    `<line x1="356" y1="18" x2="356" y2="912" stroke="#DDDEE2" stroke-width="2"/>`,
+    circle(50, 52, 11, { fill: '#FF5F57' }),
+    circle(82, 52, 11, { fill: '#FFBD2E' }),
+    circle(114, 52, 11, { fill: '#28C840' }),
+    text(36, 114, 'ChatGPT', { size: 31, weight: 700 }),
+    text(168, 111, '⌄', { size: 27, fill: C.muted }),
+    text(320, 111, '⌕', { size: 34, fill: C.muted, anchor: 'middle' }),
+    rect(32, 142, 292, 52, { fill: C.white, stroke: '#DDDEE2', strokeWidth: 2, radius: 15 }),
+    text(58, 176, '+', { size: 30, fill: C.ink }),
+    text(98, 175, 'New chat', { size: 24, weight: 600 }),
+    text(50, 235, '⌕', { size: 28, fill: C.muted }),
+    text(98, 235, 'Search', { size: 24, fill: C.ink }),
+    text(50, 287, '▱', { size: 25, fill: C.muted }),
+    text(98, 287, 'Library', { size: 24, fill: C.ink }),
+    text(50, 339, '◉', { size: 24, fill: C.muted }),
+    text(98, 339, 'Plugins', { size: 24, fill: C.ink }),
+    text(36, 415, 'Projects', { size: 22, weight: 600, fill: '#8A8F98' }),
+    text(316, 415, '+', { size: 28, fill: C.muted, anchor: 'middle' }),
+    text(50, 465, '□', { size: 23, fill: C.muted }),
+    text(98, 465, 'Productivity', { size: 23 }),
+    text(50, 512, '□', { size: 23, fill: C.muted }),
+    text(98, 512, 'Research', { size: 23 }),
+    text(50, 559, '□', { size: 23, fill: C.muted }),
+    text(98, 559, 'Writing', { size: 23 }),
+    text(50, 868, '⚙', { size: 25, fill: C.muted }),
+    text(90, 868, 'Settings', { size: 22, fill: C.muted }),
+
+    // Chat / Work switcher from the current ChatGPT surface.
+    rect(864, 35, 328, 58, { fill: '#F1F1F2', stroke: '#F1F1F2', radius: 29 }),
+    rect(866, 37, 160, 54, { fill: C.white, stroke: '#DFE1E5', strokeWidth: 1, radius: 27 }),
+    text(946, 74, 'Chat', { size: 24, weight: 700, anchor: 'middle' }),
+    text(1104, 74, 'Work', { size: 24, fill: '#7D828B', anchor: 'middle' }),
+
+    text(1128, 156, 'Two ways to begin', { size: 40, weight: 700, anchor: 'middle' }),
+    text(1128, 192, 'Give ChatGPT a task, or ask it to discover the task with you.', { size: 24, fill: C.muted, anchor: 'middle' }),
+
+    // Prompting comparison inside the new ChatGPT conversation area.
+    rect(500, 230, 1250, 142, { fill: '#F2FAF5', stroke: '#9BCDB1', strokeWidth: 3, radius: 24 }),
+    rect(528, 255, 88, 88, { fill: '#E0F1E6', stroke: '#E0F1E6', radius: 20 }),
+    text(572, 312, '→', { size: 45, weight: 700, fill: C.green, anchor: 'middle' }),
+    text(650, 286, 'Straight prompt', { size: 30, weight: 700, fill: C.green }),
+    text(650, 330, 'Summarize this PDF into action items.', { size: 27 }),
+
+    rect(500, 397, 1250, 142, { fill: '#F2F6FF', stroke: '#9EBEF5', strokeWidth: 3, radius: 24 }),
+    rect(528, 422, 88, 88, { fill: '#E1EBFC', stroke: '#E1EBFC', radius: 20 }),
+    text(572, 480, '?', { size: 40, weight: 700, fill: C.blue, anchor: 'middle' }),
+    text(650, 453, 'Reverse prompt', { size: 30, weight: 700, fill: C.blue }),
+    text(650, 497, 'Ask me questions so you can understand my goals.', { size: 27 }),
+
+    circle(448, 604, 25, { fill: '#F1F1F2', stroke: '#D7D7DA', strokeWidth: 2 }),
+    text(448, 613, '✦', { size: 25, weight: 700, fill: C.ink, anchor: 'middle' }),
+    rect(500, 569, 1250, 70, { fill: C.white, stroke: '#E0E2E7', strokeWidth: 2, radius: 18 }),
+    circle(540, 604, 17, { fill: C.blueSoft }),
+    text(540, 611, '1', { size: 19, weight: 700, fill: C.blue, anchor: 'middle' }),
+    text(580, 613, 'What are your main goals?', { size: 24 }),
+    rect(500, 651, 1250, 70, { fill: C.white, stroke: '#E0E2E7', strokeWidth: 2, radius: 18 }),
+    circle(540, 686, 17, { fill: C.blueSoft }),
+    text(540, 693, '2', { size: 19, weight: 700, fill: C.blue, anchor: 'middle' }),
+    text(580, 695, 'What slows you down?', { size: 24 }),
+
+    // Current composer treatment.
+    rect(454, 780, 1320, 86, { fill: C.white, stroke: '#D8DBE1', strokeWidth: 2, radius: 36 }),
+    text(492, 835, '+', { size: 34, fill: C.ink }),
+    text(548, 833, 'Message ChatGPT', { size: 25, fill: '#9B9FA7' }),
+    text(1570, 833, 'Instant', { size: 23, fill: C.muted }),
+    text(1660, 833, '♩', { size: 28, fill: C.ink }),
+    circle(1728, 823, 27, { fill: '#94989F' }),
+    text(1728, 833, '↑', { size: 29, weight: 700, fill: C.white, anchor: 'middle' }),
+  ].join('');
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">${body}</svg>`;
+}
+
+function chapter1ComparisonChatGPTUI() {
+  const body = [
+    defs(),
+    `<rect width="${WIDTH}" height="${HEIGHT}" fill="#F7F7F8"/>`,
+    rect(18, 18, 1884, 894, { fill: C.white, stroke: '#D7D7DA', strokeWidth: 2, radius: 22 }),
+    `<path d="M40 18 H356 V912 H40 Q18 912 18 890 V40 Q18 18 40 18 Z" fill="#F1F1F2"/>`,
+    `<line x1="356" y1="18" x2="356" y2="912" stroke="#DDDEE2" stroke-width="2"/>`,
+    circle(50, 52, 11, { fill: '#FF5F57' }),
+    circle(82, 52, 11, { fill: '#FFBD2E' }),
+    circle(114, 52, 11, { fill: '#28C840' }),
+    text(36, 114, 'ChatGPT', { size: 31, weight: 700 }),
+    text(168, 111, '⌄', { size: 27, fill: C.muted }),
+    text(320, 111, '⌕', { size: 34, fill: C.muted, anchor: 'middle' }),
+    rect(32, 142, 292, 52, { fill: C.white, stroke: '#DDDEE2', strokeWidth: 2, radius: 15 }),
+    text(58, 176, '+', { size: 30 }),
+    text(98, 175, 'New chat', { size: 24, weight: 600 }),
+    text(50, 235, '⌕', { size: 28, fill: C.muted }),
+    text(98, 235, 'Search', { size: 24 }),
+    text(50, 287, '▱', { size: 25, fill: C.muted }),
+    text(98, 287, 'Library', { size: 24 }),
+    text(50, 339, '◉', { size: 24, fill: C.muted }),
+    text(98, 339, 'Plugins', { size: 24 }),
+    text(36, 415, 'Projects', { size: 22, weight: 600, fill: '#8A8F98' }),
+    text(316, 415, '+', { size: 28, fill: C.muted, anchor: 'middle' }),
+    text(50, 465, '□', { size: 23, fill: C.muted }),
+    text(98, 465, 'Development', { size: 23 }),
+    text(50, 512, '□', { size: 23, fill: C.muted }),
+    text(98, 512, 'Research', { size: 23 }),
+    text(50, 868, '⚙', { size: 25, fill: C.muted }),
+    text(90, 868, 'Settings', { size: 22, fill: C.muted }),
+
+    rect(864, 35, 328, 58, { fill: '#F1F1F2', stroke: '#F1F1F2', radius: 29 }),
+    rect(866, 37, 160, 54, { fill: C.white, stroke: '#DFE1E5', strokeWidth: 1, radius: 27 }),
+    text(946, 74, 'Chat', { size: 24, weight: 700, anchor: 'middle' }),
+    text(1104, 74, 'Work', { size: 24, fill: '#7D828B', anchor: 'middle' }),
+
+    rect(755, 118, 670, 66, { fill: '#F1F1F2', stroke: '#F1F1F2', radius: 24 }),
+    text(1090, 160, 'Compare Codex, Claude Code, and Google Antigravity', { size: 24, anchor: 'middle' }),
+    circle(430, 241, 25, { fill: '#F1F1F2', stroke: '#D7D7DA', strokeWidth: 2 }),
+    text(430, 250, '✦', { size: 25, weight: 700, anchor: 'middle' }),
+    text(480, 250, 'Here is a comparison across three practical dimensions.', { size: 23 }),
+
+    // Comparison table inside the current ChatGPT conversation.
+    rect(480, 280, 1330, 466, { fill: C.white, stroke: '#D8DBE1', strokeWidth: 2, radius: 22 }),
+    `<path d="M480 302 Q480 280 502 280 H1788 Q1810 280 1810 302 V350 H480 Z" fill="#F4F6F8"/>`,
+    `<line x1="740" y1="280" x2="740" y2="746" stroke="#D8DBE1" stroke-width="2"/>`,
+    `<line x1="1090" y1="280" x2="1090" y2="746" stroke="#D8DBE1" stroke-width="2"/>`,
+    `<line x1="1450" y1="280" x2="1450" y2="746" stroke="#D8DBE1" stroke-width="2"/>`,
+    `<line x1="480" y1="350" x2="1810" y2="350" stroke="#D8DBE1" stroke-width="2"/>`,
+    `<line x1="480" y1="482" x2="1810" y2="482" stroke="#D8DBE1" stroke-width="2"/>`,
+    `<line x1="480" y1="614" x2="1810" y2="614" stroke="#D8DBE1" stroke-width="2"/>`,
+    text(915, 325, 'Safety model', { size: 24, weight: 700, anchor: 'middle' }),
+    text(1270, 325, 'Convenience', { size: 24, weight: 700, anchor: 'middle' }),
+    text(1630, 325, 'Technical threshold', { size: 24, weight: 700, anchor: 'middle' }),
+
+    rect(510, 390, 48, 48, { fill: C.tealSoft, stroke: C.tealSoft, radius: 12 }),
+    text(534, 422, 'C', { size: 23, weight: 700, fill: C.teal, anchor: 'middle' }),
+    text(578, 422, 'Codex', { size: 24, weight: 700 }),
+    lines(770, 392, ['Bounded workspace,', 'permissions, and review.'], { size: 20, gap: 30 }),
+    lines(1120, 392, ['Integrated tasks, files,', 'commands, and evidence.'], { size: 20, gap: 30 }),
+    lines(1480, 392, ['Low to moderate;', 'sensible defaults.'], { size: 20, gap: 30 }),
+
+    rect(510, 522, 48, 48, { fill: C.purpleSoft, stroke: C.purpleSoft, radius: 12 }),
+    text(534, 554, 'C', { size: 23, weight: 700, fill: C.purple, anchor: 'middle' }),
+    text(578, 554, 'Claude Code', { size: 23, weight: 700 }),
+    lines(770, 524, ['User configuration and', 'careful terminal control.'], { size: 20, gap: 30 }),
+    lines(1120, 524, ['Lightweight start for', 'terminal workflows.'], { size: 20, gap: 30 }),
+    lines(1480, 524, ['Moderate; requires', 'more manual setup.'], { size: 20, gap: 30 }),
+
+    rect(510, 652, 48, 48, { fill: C.blueSoft, stroke: C.blueSoft, radius: 12 }),
+    text(534, 684, 'G', { size: 23, weight: 700, fill: C.blue, anchor: 'middle' }),
+    lines(578, 672, ['Google', 'Antigravity'], { size: 20, weight: 700, gap: 26 }),
+    lines(770, 656, ['Sandboxed execution and', 'policy-based controls.'], { size: 20, gap: 30 }),
+    lines(1120, 656, ['Cloud-native workflow with', 'Google integrations.'], { size: 20, gap: 30 }),
+    lines(1480, 656, ['Moderate to high;', 'cloud experience helps.'], { size: 20, gap: 30 }),
+
+    rect(454, 795, 1320, 78, { fill: C.white, stroke: '#D8DBE1', strokeWidth: 2, radius: 34 }),
+    text(492, 844, '+', { size: 34 }),
+    text(548, 842, 'Message ChatGPT', { size: 25, fill: '#9B9FA7' }),
+    text(1570, 842, 'Instant', { size: 23, fill: C.muted }),
+    circle(1728, 834, 27, { fill: '#94989F' }),
+    text(1728, 844, '↑', { size: 29, weight: 700, fill: C.white, anchor: 'middle' }),
+  ].join('');
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${HEIGHT}" viewBox="0 0 ${WIDTH} ${HEIGHT}">${body}</svg>`;
+}
+
+function chapter4WorkOrder() {
+  const cards = [
+    {
+      title: 'Goal',
+      color: C.blue,
+      body: ['What should be', 'true when the work', 'is done?'],
+    },
+    {
+      title: 'Context',
+      color: C.teal,
+      body: ['What situation,', 'files, audience,', 'or source material', 'matters?'],
+    },
+    {
+      title: 'Constraints',
+      color: C.orange,
+      body: ['What must Codex', 'preserve, avoid,', 'or follow?'],
+    },
+    {
+      title: 'Output',
+      color: C.purple,
+      body: ['What form should', 'the answer or', 'artifact take?'],
+    },
+    {
+      title: 'Verification',
+      color: C.green,
+      body: ['How should the', 'result be checked?'],
+    },
+  ];
+  const cardX = [110, 463, 816, 1169, 1522];
+  const cardY = 208;
+  const cardW = 300;
+  const cardH = 246;
+  let body = header('The Codex Work Order', 'A useful prompt reduces uncertainty from intention to evidence.');
+
+  cards.forEach((card, index) => {
+    const x = cardX[index];
+    body += rect(x, cardY, cardW, cardH, { fill: C.white, stroke: card.color, strokeWidth: 4, radius: 26 });
+    body += circle(x + 45, cardY + 45, 25, { fill: card.color });
+    body += text(x + 94, cardY + 56, card.title, { size: card.title === 'Verification' ? 28 : 30, weight: 700, fill: card.color });
+    body += lines(x + 27, cardY + 130, card.body, { size: 24, gap: 33 });
+    if (index < cards.length - 1) {
+      body += lineArrow(x + cardW + 12, cardY + cardH / 2, cardX[index + 1] - 14, cardY + cardH / 2, { color: card.color, width: 4, head: 11 });
+    }
+  });
+
+  body += rect(210, 610, 1500, 270, { fill: '#FAFBFD', stroke: C.line, strokeWidth: 3, radius: 26 });
+  body += text(260, 688, 'Weak request', { size: 31, weight: 700, fill: C.orange });
+  body += text(260, 748, '“Help with my resume.”', { size: 25 });
+  body += lineArrow(790, 747, 960, 747, { color: C.green, width: 5, head: 15 });
+  body += text(1020, 688, 'Stronger request', { size: 31, weight: 700, fill: C.green });
+  body += lines(1020, 748, [
+    '“Review my resume for a US software',
+    'internship. Improve clarity, do not invent',
+    'experience, and return a revised version',
+    'plus the key changes.”',
+  ], { size: 24, gap: 31 });
+  return wrap(body);
+}
+
+function chapter4MultilingualWorkflow() {
+  const cards = [
+    {
+      title: 'Explain in your language',
+      color: C.blue,
+      body: ['Describe goals,', 'background, limits, and', 'audience.'],
+    },
+    {
+      title: 'Confirm meaning',
+      color: C.teal,
+      body: ['Codex restates', 'assumptions and flags', 'ambiguity.'],
+    },
+    {
+      title: 'Preserve key terms',
+      color: C.orange,
+      body: ['Keep API, component,', 'state, prompt, context,', 'and other technical terms', 'precise.'],
+    },
+    {
+      title: 'Produce output',
+      color: C.green,
+      body: ['English document,', 'bilingual table, or', 'native-language', 'explanation.'],
+    },
+  ];
+  const cardX = [105, 551, 997, 1443];
+  const cardY = 225;
+  const cardW = 390;
+  const cardH = 300;
+  let body = header('Multilingual Prompting Workflow', 'Use your strongest language for meaning, then control the output language.');
+
+  cards.forEach((card, index) => {
+    const x = cardX[index];
+    body += rect(x, cardY, cardW, cardH, { fill: C.white, stroke: card.color, strokeWidth: 4, radius: 28 });
+    body += text(x + 27, cardY + 62, card.title, { size: index === 0 ? 29 : 32, weight: 700, fill: card.color });
+    body += lines(x + 27, cardY + 133, card.body, { size: 27, gap: 33 });
+    if (index < cards.length - 1) {
+      body += lineArrow(x + cardW + 12, cardY + cardH / 2, cardX[index + 1] - 14, cardY + cardH / 2, { color: card.color, width: 4, head: 11 });
+    }
+  });
+
+  body += rect(230, 650, 1460, 220, { fill: '#FAFBFD', stroke: C.line, strokeWidth: 3, radius: 26 });
+  body += text(305, 716, 'Example instruction', { size: 32, weight: 700, fill: C.purple });
+  body += lines(305, 767, [
+    'I will explain the requirement in my native language. Please confirm your',
+    'understanding in simple terms, preserve key technical terms in English,',
+    'and produce a natural English final version.',
+  ], { size: 27, gap: 36 });
+  return wrap(body);
+}
+
+function chapter4PromptingPatterns() {
+  const cards = [
+    {
+      title: 'Beginner',
+      subtitle: 'Simple delegation',
+      color: C.blue,
+      prompt: ['I want X. I am starting from Y. I', 'do not know Z. Ask questions first,', 'then suggest a simple plan.'],
+      best: ['The user knows the goal but not', 'the path.'],
+    },
+    {
+      title: 'Technical user',
+      subtitle: 'Operational instruction',
+      color: C.green,
+      prompt: ['Inspect before changing. Make the', 'smallest coherent fix. Run relevant', 'tests. Report evidence.'],
+      best: ['The task touches files, tools,', 'tests, or risk.'],
+    },
+    {
+      title: 'Mixed team',
+      subtitle: 'Two-layer communication',
+      color: C.purple,
+      prompt: ['Give a plain-language summary for', 'decision makers and a technical', 'note for implementers.'],
+      best: ['Different readers need different', 'levels of detail.'],
+    },
+  ];
+  const cardX = [105, 650, 1255];
+  const cardY = 220;
+  const cardW = 520;
+  const cardH = 640;
+  let body = header('Prompting Patterns by User Type', 'Different users need different levels of control, not different magic words.');
+
+  cards.forEach((card, index) => {
+    const x = cardX[index];
+    body += rect(x, cardY, cardW, cardH, { fill: C.white, stroke: card.color, strokeWidth: 4, radius: 26 });
+    body += `<path d="M${x} ${cardY + 26} Q${x} ${cardY} ${x + 26} ${cardY} H${x + cardW - 26} Q${x + cardW} ${cardY} ${x + cardW} ${cardY + 26} V${cardY + 120} H${x} Z" fill="${card.color}"/>`;
+    body += text(x + 31, cardY + 76, card.title, { size: 45, weight: 700, fill: C.white });
+    body += text(x + 31, cardY + 164, card.subtitle, { size: index === 2 ? 29 : 30, weight: 700, fill: card.color });
+    body += `<line x1="${x + 31}" y1="${cardY + 184}" x2="${x + cardW - 31}" y2="${cardY + 184}" stroke="${C.line}" stroke-width="3"/>`;
+    body += text(x + 31, cardY + 252, 'Prompt shape', { size: 32, weight: 700 });
+    body += lines(x + 31, cardY + 309, card.prompt, { size: 25, gap: 34 });
+    body += text(x + 31, cardY + 520, 'Best when', { size: 32, weight: 700 });
+    body += lines(x + 31, cardY + 573, card.best, { size: 24, fill: C.muted, gap: 33 });
+  });
+  return wrap(body);
+}
+
+function chapter4FeedbackLoop() {
+  const node = (x, y, width, height, label, color, size = 31) => [
+    rect(x, y, width, height, { fill: C.white, stroke: color, strokeWidth: 4, radius: 25 }),
+    text(x + width / 2, y + height / 2 + 11, label, { size, weight: 700, fill: color, anchor: 'middle' }),
+  ].join('');
+  const path = (points, color) => `<polyline points="${points.map(([x, y]) => `${x},${y}`).join(' ')}" fill="none" stroke="${color}" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`;
+
+  let body = header('The Feedback Loop', 'Correction is how Codex moves from a plausible answer to a better result.');
+
+  // Connect only at node borders; paths are painted before nodes so no line can cross text.
+  body += path([[860, 300], [700, 380]], C.purple);
+  body += path([[620, 490], [700, 690]], C.green);
+  body += path([[870, 745], [1050, 745]], C.orange);
+  body += path([[1230, 690], [1300, 490]], C.teal);
+  body += path([[1220, 380], [1060, 300]], C.blue);
+
+  body += node(810, 190, 300, 110, 'First result', C.blue);
+  body += node(450, 380, 300, 110, 'Revise', C.purple);
+  body += node(1170, 380, 300, 110, 'Review', C.teal);
+  body += node(570, 690, 300, 110, 'Verify', C.green);
+  body += node(1050, 690, 360, 110, 'Specific correction', C.orange, 29);
+
+  body += rect(770, 430, 380, 205, { fill: '#FAFBFD', stroke: C.line, strokeWidth: 3, radius: 26 });
+  body += lines(960, 500, ['What is wrong?', 'What should stay?', 'What should change?'], { size: 31, weight: 700, gap: 42, anchor: 'middle' });
+
+  body += lines(960, 856, [
+    'When a loop creates more confusion, pause and ask Codex to restate the goal,',
+    'assumptions, and current plan before continuing.',
+  ], { size: 24, fill: C.muted, gap: 34, anchor: 'middle' });
+  return wrap(body);
+}
+
 const assets = [
   ['kix.m4a7d2c9f1be.png', chapter1WorkSurface()],
   ['kix.b8e2f6a1c4d7.png', chapter1CapabilityLevels()],
@@ -392,6 +749,12 @@ const assets = [
   ['kix.a3d7f1c5e9b4.png', chapter5Workflow()],
   ['kix.b5e9a3d7f1c6.png', chapter5WebsitePaths()],
   ['kix.c7f1b5e9a3d8.png', chapter5DataFlow()],
+  ['kix.f18bplqpy9dn.png', chapter1PromptingChatGPTUI()],
+  ['kix.8e2oly9rxw1s.png', chapter1ComparisonChatGPTUI()],
+  ['kix.s3m1ypkr2vez.png', chapter4WorkOrder()],
+  ['kix.22fon7v7odmd.png', chapter4MultilingualWorkflow()],
+  ['kix.u5wgw05b4nca.png', chapter4PromptingPatterns()],
+  ['kix.pi7mibo6lea2.png', chapter4FeedbackLoop()],
 ];
 
 await fs.mkdir(OUT_DIR, { recursive: true });
