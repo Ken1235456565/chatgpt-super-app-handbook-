@@ -800,19 +800,27 @@ function conceptComparison({ title: titleText, subtitle, left, right, footer }) 
 
 function conceptHub({ title: titleText, subtitle, center, nodes, footer }) {
   const positions = [
-    [250, 300], [650, 210], [1270, 210], [1670, 300],
+    [250, 300], [650, 260], [1270, 260], [1670, 300],
     [500, 650], [1420, 650],
   ];
   let body = header(titleText, subtitle);
   const centerX = 960;
   const centerY = 465;
+
+  nodes.forEach((_, index) => {
+    const [x, y] = positions[index];
+    body += `<line x1="${centerX}" y1="${centerY}" x2="${x}" y2="${y}" stroke="${C.line}" stroke-width="5" stroke-linecap="round"/>`;
+  });
+
   nodes.forEach((node, index) => {
     const [x, y] = positions[index];
     const color = node.color || [C.blue, C.teal, C.purple, C.orange, C.green, C.amber][index % 6];
-    body += `<line x1="${centerX}" y1="${centerY}" x2="${x}" y2="${y}" stroke="${C.line}" stroke-width="5" stroke-linecap="round"/>`;
     body += circle(x, y, 92, { fill: C.white, stroke: color, strokeWidth: 4 });
     body += diagramText(x, y - 5, node.label, { size: 25, weight: 700, fill: color, anchor: 'middle', gap: 30 });
-    if (node.note) body += text(x, y + 124, node.note, { size: 20, fill: C.muted, anchor: 'middle' });
+    if (node.note) {
+      body += rect(x - 125, y + 101, 250, 38, { fill: C.page, stroke: 'none', strokeWidth: 0, radius: 19 });
+      body += text(x, y + 126, node.note, { size: 20, fill: C.muted, anchor: 'middle' });
+    }
   });
   body += circle(centerX, centerY, 140, { fill: C.blueSoft, stroke: C.blue, strokeWidth: 6 });
   body += diagramText(centerX, centerY + 4, center, { size: 33, weight: 700, fill: C.blue, anchor: 'middle', gap: 40 });
