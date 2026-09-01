@@ -20,11 +20,25 @@ A raw idea is usually not yet a product. “I want a website for my business,”
 
 When the human already knows exactly what to build, ChatGPT should act like an execution partner. Give it the goal, audience, technical stack, pages, data model, constraints, and acceptance checks. When the human only has a direction, ChatGPT should act like a peer product collaborator and propose options. When the human is unsure what the product should be, ChatGPT should use reverse prompting: ask questions, summarize the answers, expose assumptions, and turn imperfect human language into a clear product brief.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-07-idea-to-product.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 7.1">
+    <img src="/images/chapter-07-idea-to-product.png" alt="Five-step path from a user problem to an outcome, bounded scope, prototype, and operated product." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 7.1.</strong> A buildable product connects a validated problem to a small testable scope before production work begins.</figcaption>
+</figure>
+
 ## 7.2 Website, App, or Automation: Choosing the Right Form
 
 Many ideas do not need a custom app. A brochure site may need WordPress, Webflow, Wix, Squarespace, or a static site. A lead-capture workflow may need a form, a spreadsheet, a CRM, and an email sequence. A repeated internal process may need an Airtable base, a Google Sheet, a small Python script, or a Slack workflow. A true app is justified when users need repeated interaction, accounts, permissions, saved state, complex data, or a custom experience that existing tools cannot provide.
 
 ChatGPT can compare forms by speed, cost, maintenance, user experience, integration needs, data risk, and team skill. A simple decision rule helps: use a website when the main job is explanation and conversion; use an app when the main job is repeated use and stateful interaction; use automation when the main job is reducing repetitive work; use an internal tool when the main job is operational visibility and control.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-07-form-choice.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 7.2">
+    <img src="/images/chapter-07-form-choice.png" alt="Comparison of a website or app for direct user interaction with an automation for a repeated predictable process." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 7.2.</strong> Choose an interface when people need to explore and an automation when a stable process repeats.</figcaption>
+</figure>
 
 ## 7.3 Working Like a Product Manager With ChatGPT
 
@@ -37,6 +51,13 @@ A useful product prompt is: “Act as my product partner. Before proposing scree
 Requirements become buildable when they are translated into three layers: a spec, a screen map, and a task plan. The spec explains what the system does and does not do. The screen map explains how the user moves through the experience. The task plan explains what a builder should implement, verify, and review.
 
 ChatGPT can turn a short idea into a product brief, user flows, requirements, states, validation rules, risks, and test cases. Figma can hold design intent, GitHub or Linear can hold tasks, and Vercel can provide preview deployments. When the work enters a real codebase, Codex can keep design, implementation, tests, and delivery artifacts aligned.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-07-requirements-handoff.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 7.3">
+    <img src="/images/chapter-07-requirements-handoff.png" alt="Requirements handoff flow from requirements through user flows, screens, implementation tasks, and acceptance checks." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 7.3.</strong> Requirements become buildable when each screen and task traces back to a user outcome and a check.</figcaption>
+</figure>
 
 ## 7.5 Building With Sites
 
@@ -62,6 +83,13 @@ Codex should inspect before editing: read the design and repository, identify re
 
 A prototype is a question, not proof. Give real users a task, observe where they hesitate, ask what they expected, and record behavior before interpretation. ChatGPT can prepare the test plan and summarize feedback, while humans judge whether the sample and conclusions are credible.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-07-prototype-feedback.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 7.4">
+    <img src="/images/chapter-07-prototype-feedback.png" alt="Prototype learning cycle connecting a real task, observation, questions, evidence, prioritization, and revision." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 7.4.</strong> Prototype review gathers behavioral evidence before prioritizing the next revision.</figcaption>
+</figure>
+
 ## 7.9 Testing, Feedback, and Iteration
 
 Testing should cover behavior, experience, and risk. For Sites and websites, check links, forms, mobile layout, accessibility, authentication, data persistence, sharing, analytics, and browser behavior. For local apps, also check API contracts, database behavior, logs, deployment settings, and recovery.
@@ -71,6 +99,13 @@ Plugins and specialized external tools can extend a product workflow. Use [Chapt
 ## 7.10 Moving From Prototype to Production
 
 A prototype becomes a production system when responsibility increases. Confirm ownership, permissions, monitoring, backups, support, documentation, privacy, cost, deployment, rollback, and maintenance. A Sites URL is a production deployment; a successful local preview is not.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-07-production-gates.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 7.5">
+    <img src="/images/chapter-07-production-gates.png" alt="Production readiness stack covering a useful workflow, reliable behavior, secure access, observability, and product ownership." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 7.5.</strong> A working demo becomes production-ready only after reliability, security, observability, and ownership are addressed.</figcaption>
+</figure>
 
 ### Collaboration Pattern
 

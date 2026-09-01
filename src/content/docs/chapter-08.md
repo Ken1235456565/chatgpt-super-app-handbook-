@@ -16,17 +16,38 @@ The best way to keep your voice is to give ChatGPT examples and boundaries. Show
 
 A strong request is: “Here are three examples of my writing. Keep the directness and warmth, but make this draft clearer for a client. Do not add claims I did not make.” ChatGPT can produce several versions, but the human should choose the version that still feels honest.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-08-preserve-your-voice.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 8.1">
+    <img src="/images/chapter-08-preserve-your-voice.png" alt="Writing workflow from human intent and evidence through AI-assisted drafting, an author voice pass, and final review." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 8.1.</strong> AI can assist drafting, while the author supplies the intent, evidence, voice, and approval.</figcaption>
+</figure>
+
 ## 8.2 Turning Rough Notes Into Shareable Drafts
 
 Rough notes often contain the right material in the wrong order. They may mix decisions, questions, emotional reactions, background facts, and future tasks. ChatGPT can separate those layers and turn them into a memo, email, report, proposal, blog post, or meeting summary.
 
 The human should provide the audience and desired action. “Summarize this” is weaker than “Turn these notes into a client update that explains the decision, the reason, the timeline, and the next step.” If the human is unsure what the message should be, ChatGPT should ask: Who is reading this? What do they already know? What should they do after reading? What must not be misunderstood?
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-08-notes-to-draft.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 8.2">
+    <img src="/images/chapter-08-notes-to-draft.png" alt="Five-stage writing process that collects and organizes rough notes before drafting, verifying, and polishing." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 8.2.</strong> Separating structure, drafting, verification, and polish makes rough notes easier to turn into reliable writing.</figcaption>
+</figure>
+
 ## 8.3 Collaborating With Editors, Teammates, and Clients
 
 Writing is often collaborative. ChatGPT can help merge feedback from editors, teammates, clients, legal reviewers, and leadership. It can identify conflicting comments, convert vague feedback into revision tasks, propose a response to reviewers, and keep track of unresolved questions.
 
 The human role is to decide which feedback to accept. A client may ask for a stronger claim that creates legal risk. A teammate may prefer a tone that does not fit the audience. An editor may improve clarity but remove an important nuance. ChatGPT can surface the tradeoff, but a human must make the judgment.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-08-collaboration-lanes.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 8.3">
+    <img src="/images/chapter-08-collaboration-lanes.png" alt="Comparison of AI-assisted drafting tasks with human approval responsibilities for important writing." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 8.3.</strong> Drafting can be accelerated, but factual promises, conflicts, and publication remain human approval decisions.</figcaption>
+</figure>
 
 ## 8.4 Emails, Reports, Proposals, and Memos
 
@@ -40,6 +61,13 @@ Tone is not decoration. It is relationship management. A message to a frustrated
 
 For approval workflows, ChatGPT can prepare drafts, red flags, reviewer notes, and version summaries. Before sending external writing, humans should check whether the organization requires legal, finance, manager, brand, or client approval. The smoother the AI draft sounds, the more important it is to inspect the promises inside it.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-08-tone-audience.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 8.4">
+    <img src="/images/chapter-08-tone-audience.png" alt="Message design hub connecting audience, purpose, relationship, channel, culture, and risk." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 8.4.</strong> Tone should fit the reader, purpose, relationship, channel, culture, and cost of ambiguity.</figcaption>
+</figure>
+
 ## 8.6 Bilingual and Cross-Cultural Communication
 
 Bilingual communication is not only translation. It is adaptation. A sentence that sounds respectful in Chinese may sound indirect in English. A direct English request may sound abrupt in another culture. ChatGPT can help preserve intent while adjusting structure, politeness, formality, and cultural expectations.
@@ -51,6 +79,13 @@ Humans should review names, titles, idioms, legal terms, numbers, dates, and cul
 Important writing deserves a checklist. Check facts, dates, names, numbers, links, attachments, tone, audience, confidentiality, promises, deadlines, owners, and approvals. Check whether the message says what is known, what is uncertain, and what happens next.
 
 ChatGPT can run a pre-send review: “List any factual claims, risky promises, missing context, ambiguous requests, tone issues, and private information in this draft.” Humans should still read the final message slowly. If the writing affects money, employment, legal exposure, customer trust, health, safety, or reputation, do not rely on an AI summary alone.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-08-writing-review.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 8.5">
+    <img src="/images/chapter-08-writing-review.png" alt="Important-writing review stack covering truth, intent, risk, clarity, and final presentation." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 8.5.</strong> Review meaning and risk before spending time on surface polish.</figcaption>
+</figure>
 
 ## 8.8 Building Repeatable Writing Templates
 

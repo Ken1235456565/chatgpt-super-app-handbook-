@@ -739,6 +739,507 @@ function chapter4FeedbackLoop() {
   return wrap(body);
 }
 
+function diagramText(x, y, value, { size = 28, weight = 400, fill = C.ink, anchor = 'start', gap = 34 } = {}) {
+  const values = String(value).split('|');
+  return lines(x, y - ((values.length - 1) * gap) / 2, values, { size, weight, fill, gap, anchor });
+}
+
+function conceptFlow({ title: titleText, subtitle, steps, footer }) {
+  const count = steps.length;
+  const gap = count >= 5 ? 34 : 52;
+  const cardW = Math.floor((1740 - gap * (count - 1)) / count);
+  const startX = (WIDTH - (cardW * count + gap * (count - 1))) / 2;
+  const cardY = 245;
+  const cardH = 430;
+  let body = header(titleText, subtitle);
+
+  steps.forEach((step, index) => {
+    const x = startX + index * (cardW + gap);
+    const color = step.color || [C.blue, C.teal, C.purple, C.orange, C.green][index % 5];
+    const soft = step.soft || [C.blueSoft, C.tealSoft, C.purpleSoft, C.orangeSoft, C.greenSoft][index % 5];
+    body += rect(x, cardY, cardW, cardH, { fill: C.white, stroke: color, strokeWidth: 4, radius: 28 });
+    body += circle(x + cardW / 2, cardY + 72, 34, { fill: color });
+    body += text(x + cardW / 2, cardY + 83, String(index + 1), { size: 28, weight: 700, fill: C.white, anchor: 'middle' });
+    body += diagramText(x + cardW / 2, cardY + 165, step.label, { size: count >= 5 ? 28 : 31, weight: 700, fill: color, anchor: 'middle', gap: 33 });
+    body += diagramText(x + cardW / 2, cardY + 285, step.note, { size: count >= 5 ? 23 : 25, fill: C.muted, anchor: 'middle', gap: 32 });
+    body += rect(x + 28, cardY + 366, cardW - 56, 42, { fill: soft, stroke: soft, radius: 21 });
+    body += text(x + cardW / 2, cardY + 395, step.tag || 'CHECK', { size: 19, weight: 700, fill: color, anchor: 'middle', letterSpacing: 1.2 });
+    if (index < count - 1) {
+      body += lineArrow(x + cardW + 8, cardY + cardH / 2, x + cardW + gap - 10, cardY + cardH / 2, { color: C.blue, width: 4, head: 10 });
+    }
+  });
+
+  body += rect(225, 760, 1470, 96, { fill: C.white, stroke: C.line, strokeWidth: 2, radius: 48 });
+  body += text(960, 820, footer, { size: 28, weight: 700, fill: C.ink, anchor: 'middle' });
+  return wrap(body);
+}
+
+function conceptComparison({ title: titleText, subtitle, left, right, footer }) {
+  const panels = [left, right];
+  const xs = [100, 1010];
+  let body = header(titleText, subtitle);
+  panels.forEach((panel, index) => {
+    const x = xs[index];
+    const color = panel.color || (index === 0 ? C.blue : C.teal);
+    const soft = panel.soft || (index === 0 ? C.blueSoft : C.tealSoft);
+    body += rect(x, 220, 810, 535, { fill: C.white, stroke: color, strokeWidth: 4, radius: 30 });
+    body += rect(x + 1, 221, 808, 116, { fill: soft, stroke: soft, radius: 29 });
+    body += text(x + 42, 276, panel.title, { size: 36, weight: 700, fill: color });
+    body += text(x + 42, 315, panel.subtitle, { size: 23, fill: C.muted });
+    panel.items.forEach((item, itemIndex) => {
+      const cy = 405 + itemIndex * 74;
+      body += circle(x + 58, cy - 8, 12, { fill: color });
+      body += diagramText(x + 92, cy, item, { size: 26, fill: C.ink, gap: 30 });
+    });
+  });
+  body += lineArrow(925, 485, 995, 485, { color: C.purple, width: 5, head: 14 });
+  body += rect(250, 800, 1420, 82, { fill: C.white, stroke: C.line, strokeWidth: 2, radius: 41 });
+  body += text(960, 852, footer, { size: 27, weight: 700, anchor: 'middle' });
+  return wrap(body);
+}
+
+function conceptHub({ title: titleText, subtitle, center, nodes, footer }) {
+  const positions = [
+    [250, 300], [650, 210], [1270, 210], [1670, 300],
+    [500, 650], [1420, 650],
+  ];
+  let body = header(titleText, subtitle);
+  const centerX = 960;
+  const centerY = 465;
+  nodes.forEach((node, index) => {
+    const [x, y] = positions[index];
+    const color = node.color || [C.blue, C.teal, C.purple, C.orange, C.green, C.amber][index % 6];
+    body += `<line x1="${centerX}" y1="${centerY}" x2="${x}" y2="${y}" stroke="${C.line}" stroke-width="5" stroke-linecap="round"/>`;
+    body += circle(x, y, 92, { fill: C.white, stroke: color, strokeWidth: 4 });
+    body += diagramText(x, y - 5, node.label, { size: 25, weight: 700, fill: color, anchor: 'middle', gap: 30 });
+    if (node.note) body += text(x, y + 124, node.note, { size: 20, fill: C.muted, anchor: 'middle' });
+  });
+  body += circle(centerX, centerY, 140, { fill: C.blueSoft, stroke: C.blue, strokeWidth: 6 });
+  body += diagramText(centerX, centerY + 4, center, { size: 33, weight: 700, fill: C.blue, anchor: 'middle', gap: 40 });
+  body += rect(300, 820, 1320, 72, { fill: C.white, stroke: C.line, strokeWidth: 2, radius: 36 });
+  body += text(960, 867, footer, { size: 25, weight: 700, anchor: 'middle' });
+  return wrap(body);
+}
+
+function conceptStack({ title: titleText, subtitle, levels, footer }) {
+  let body = header(titleText, subtitle);
+  levels.forEach((level, index) => {
+    const color = level.color || [C.green, C.teal, C.blue, C.purple, C.orange, C.red][index % 6];
+    const soft = level.soft || [C.greenSoft, C.tealSoft, C.blueSoft, C.purpleSoft, C.orangeSoft, C.redSoft][index % 6];
+    const inset = index * 72;
+    const x = 210 + inset;
+    const width = 1500 - inset * 2;
+    const y = 195 + index * 105;
+    body += rect(x, y, width, 78, { fill: soft, stroke: color, strokeWidth: 3, radius: 22 });
+    body += text(x + 34, y + 50, level.label, { size: 29, weight: 700, fill: color });
+    body += text(x + width - 34, y + 49, level.note, { size: 24, fill: C.ink, anchor: 'end' });
+  });
+  body += text(960, 874, footer, { size: 27, weight: 700, anchor: 'middle' });
+  return wrap(body);
+}
+
+const chapterDiagramSpecs = [
+  ['chapter-06-debugging-funnel.png', 'flow', {
+    title: 'A Disciplined Debugging Funnel', subtitle: 'Move from a repeatable symptom to a small, verified fix.',
+    steps: [
+      { label: 'Reproduce', note: 'Capture the exact|failure and inputs', tag: 'KNOWN SYMPTOM' },
+      { label: 'Localize', note: 'Narrow the failing|layer or boundary', tag: 'SMALLER SEARCH' },
+      { label: 'Explain', note: 'State the likely|cause and evidence', tag: 'TESTABLE IDEA' },
+      { label: 'Fix', note: 'Change the smallest|coherent surface', tag: 'BOUNDED EDIT' },
+      { label: 'Verify', note: 'Run the original case|and regressions', tag: 'EVIDENCE' },
+    ], footer: 'If the failure cannot be reproduced, preserve the observations and avoid speculative edits.',
+  }],
+  ['chapter-06-test-strategy.png', 'stack', {
+    title: 'Build Confidence in Layers', subtitle: 'Different tests catch different failures; no single layer proves the whole system.',
+    levels: [
+      { label: 'Static checks', note: 'Types · lint · formatting' },
+      { label: 'Unit tests', note: 'Small rules and edge cases' },
+      { label: 'Integration tests', note: 'Boundaries between modules and services' },
+      { label: 'End-to-end tests', note: 'Critical user journeys' },
+      { label: 'Human review', note: 'Intent · usability · production judgment' },
+    ], footer: 'Choose the smallest test set that covers the changed behavior, then inspect the evidence.',
+  }],
+  ['chapter-06-review-evidence.png', 'hub', {
+    title: 'A Reviewable Engineering Change', subtitle: 'A pull request is strongest when the change and its evidence travel together.', center: 'Reviewable|change',
+    nodes: [
+      { label: 'Focused|diff', note: 'What changed' }, { label: 'Test|results', note: 'What passed' },
+      { label: 'Screenshots', note: 'What users see' }, { label: 'Tradeoffs', note: 'Why this path' },
+      { label: 'Risk|notes', note: 'What could fail' }, { label: 'Rollback', note: 'How to recover' },
+    ], footer: 'The reviewer should be able to reconstruct the decision without guessing.',
+  }],
+
+  ['chapter-07-idea-to-product.png', 'flow', {
+    title: 'From Idea to a Buildable Product', subtitle: 'Turn an ambition into a sequence that can be reviewed and tested.',
+    steps: [
+      { label: 'Problem', note: 'Whose pain are|you solving?', tag: 'USER NEED' },
+      { label: 'Outcome', note: 'What should become|easier or possible?', tag: 'SUCCESS' },
+      { label: 'Scope', note: 'What is the smallest|useful version?', tag: 'BOUNDARY' },
+      { label: 'Prototype', note: 'Make the workflow|visible and testable', tag: 'LEARN' },
+      { label: 'Product', note: 'Add reliability,|ownership, and support', tag: 'OPERATE' },
+    ], footer: 'A product begins with a validated problem, not with a long feature list.',
+  }],
+  ['chapter-07-form-choice.png', 'comparison', {
+    title: 'Choose the Right Product Form', subtitle: 'The interaction pattern should determine the implementation form.',
+    left: { title: 'Website or app', subtitle: 'People interact directly', items: ['A visible interface', 'Multiple user choices', 'Persistent state or accounts', 'Ongoing product ownership'] },
+    right: { title: 'Automation', subtitle: 'A repeated process runs', items: ['Clear trigger and input', 'Predictable transformation', 'Defined output destination', 'Exception and stop handling'] },
+    footer: 'If people need to explore, choose an interface; if the steps repeat, consider automation.',
+  }],
+  ['chapter-07-requirements-handoff.png', 'flow', {
+    title: 'Turn Requirements Into a Build Handoff', subtitle: 'Each artifact removes a different kind of ambiguity.',
+    steps: [
+      { label: 'Requirements', note: 'Users, goals, limits,|and acceptance', tag: 'WHY' },
+      { label: 'Flows', note: 'Steps, states, and|failure paths', tag: 'HOW' },
+      { label: 'Screens', note: 'Layout, content, and|interaction intent', tag: 'WHAT USERS SEE' },
+      { label: 'Tasks', note: 'Small implementation|units with owners', tag: 'WHAT CHANGES' },
+      { label: 'Checks', note: 'Tests, preview, and|stakeholder review', tag: 'PROOF' },
+    ], footer: 'A clear handoff connects every implementation task back to a user outcome.',
+  }],
+  ['chapter-07-prototype-feedback.png', 'hub', {
+    title: 'Prototype Review With Real Users', subtitle: 'Observe behavior, not only opinions.', center: 'Prototype|learning',
+    nodes: [
+      { label: 'Task', note: 'A real goal' }, { label: 'Observe', note: 'Where they pause' },
+      { label: 'Ask', note: 'What they expected' }, { label: 'Evidence', note: 'Notes and measures' },
+      { label: 'Prioritize', note: 'Impact first' }, { label: 'Revise', note: 'One loop' },
+    ], footer: 'Do not explain the interface while testing it; let the prototype reveal the confusion.',
+  }],
+  ['chapter-07-production-gates.png', 'stack', {
+    title: 'Prototype-to-Production Gates', subtitle: 'A working demo becomes a product only after operational risks are addressed.',
+    levels: [
+      { label: 'Useful workflow', note: 'The core user outcome works' },
+      { label: 'Reliable behavior', note: 'Errors and edge cases are handled' },
+      { label: 'Secure access', note: 'Identity, permissions, and data boundaries' },
+      { label: 'Observable service', note: 'Logs, monitoring, and recovery' },
+      { label: 'Owned product', note: 'Support, cost, policy, and maintenance' },
+    ], footer: 'Passing the demo is the beginning of production readiness, not the end.',
+  }],
+
+  ['chapter-08-preserve-your-voice.png', 'flow', {
+    title: 'Write With AI Without Losing Your Voice', subtitle: 'Separate your intent from the drafting assistance.',
+    steps: [
+      { label: 'Intent', note: 'Your point, audience,|and desired effect', tag: 'HUMAN' },
+      { label: 'Evidence', note: 'Your facts, stories,|and examples', tag: 'SOURCE' },
+      { label: 'Draft', note: 'AI helps organize|and phrase', tag: 'ASSIST' },
+      { label: 'Voice pass', note: 'Restore rhythm,|specificity, and taste', tag: 'AUTHOR' },
+      { label: 'Final review', note: 'Check truth, tone,|and consequences', tag: 'APPROVE' },
+    ], footer: 'Your voice lives in the choices you keep, remove, and rewrite.',
+  }],
+  ['chapter-08-notes-to-draft.png', 'flow', {
+    title: 'From Rough Notes to a Shareable Draft', subtitle: 'Do not ask one pass to solve structure, accuracy, and polish at once.',
+    steps: [
+      { label: 'Collect', note: 'Notes, facts, quotes,|and open questions', tag: 'RAW INPUT' },
+      { label: 'Organize', note: 'Group ideas around|the reader journey', tag: 'STRUCTURE' },
+      { label: 'Draft', note: 'Write a complete|working version', tag: 'COHERENCE' },
+      { label: 'Verify', note: 'Check claims, names,|dates, and sources', tag: 'ACCURACY' },
+      { label: 'Polish', note: 'Improve clarity, tone,|and formatting', tag: 'READY' },
+    ], footer: 'Keep unresolved questions visible until a human or reliable source answers them.',
+  }],
+  ['chapter-08-collaboration-lanes.png', 'comparison', {
+    title: 'Separate Drafting From Approval', subtitle: 'Collaboration is clearer when creation and authority are visible.',
+    left: { title: 'AI-assisted drafting', subtitle: 'Fast exploration and revision', items: ['Organize source material', 'Generate options', 'Rewrite for clarity', 'Track requested changes'] },
+    right: { title: 'Human approval', subtitle: 'Accountability stays explicit', items: ['Confirm facts and promises', 'Protect confidential details', 'Resolve stakeholder conflict', 'Approve sending or publishing'] },
+    footer: 'A polished document is still a draft until the accountable person approves it.',
+  }],
+  ['chapter-08-tone-audience.png', 'hub', {
+    title: 'Tone Begins With the Reader', subtitle: 'Choose language by relationship and purpose, not by adjectives alone.', center: 'Message|design',
+    nodes: [
+      { label: 'Audience', note: 'Who reads it' }, { label: 'Purpose', note: 'What changes' },
+      { label: 'Relationship', note: 'Power and trust' }, { label: 'Channel', note: 'Email or report' },
+      { label: 'Culture', note: 'Shared norms' }, { label: 'Risk', note: 'Cost of ambiguity' },
+    ], footer: '“Professional” is not one tone; it is a fit between reader, purpose, and consequence.',
+  }],
+  ['chapter-08-writing-review.png', 'stack', {
+    title: 'The Important-Writing Review Stack', subtitle: 'Review from meaning outward; surface polish cannot repair a false claim.',
+    levels: [
+      { label: 'Truth', note: 'Facts, sources, dates, names, numbers' },
+      { label: 'Intent', note: 'Purpose, audience, decision, next step' },
+      { label: 'Risk', note: 'Privacy, promises, legal or cultural impact' },
+      { label: 'Clarity', note: 'Structure, examples, ambiguity, omissions' },
+      { label: 'Finish', note: 'Tone, grammar, formatting, accessibility' },
+    ], footer: 'Review high-consequence layers before spending time on cosmetic refinement.',
+  }],
+
+  ['chapter-09-research-question.png', 'stack', {
+    title: 'Build a Research Question That Leads Somewhere', subtitle: 'A useful question defines both the decision and the evidence needed.',
+    levels: [
+      { label: 'Decision', note: 'What will this research help you choose?' },
+      { label: 'Scope', note: 'Population · place · time · constraints' },
+      { label: 'Evidence', note: 'What sources or data could answer it?' },
+      { label: 'Comparison', note: 'Which alternatives or viewpoints matter?' },
+      { label: 'Output', note: 'What form will make the result usable?' },
+    ], footer: 'If no decision or learning outcome follows, narrow the question before searching.',
+  }],
+  ['chapter-09-learning-loop.png', 'flow', {
+    title: 'Learn Through an Active Loop', subtitle: 'Understanding grows when explanation leads to practice and feedback.',
+    steps: [
+      { label: 'Explain', note: 'Build a simple|mental model', tag: 'UNDERSTAND' },
+      { label: 'Example', note: 'See the model in|a concrete case', tag: 'CONNECT' },
+      { label: 'Practice', note: 'Solve a new problem|without copying', tag: 'APPLY' },
+      { label: 'Feedback', note: 'Find the exact|misconception', tag: 'CORRECT' },
+      { label: 'Teach back', note: 'Explain it in|your own words', tag: 'RETAIN' },
+    ], footer: 'A fluent explanation from AI is an input to learning, not evidence that you understand.',
+  }],
+  ['chapter-09-source-comparison.png', 'comparison', {
+    title: 'Compare Sources Before Combining Them', subtitle: 'Agreement matters less when every source repeats the same weak origin.',
+    left: { title: 'Source quality', subtitle: 'Can this source support the claim?', items: ['Relevant expertise', 'Direct access to evidence', 'Transparent method', 'Current publication date'] },
+    right: { title: 'Source independence', subtitle: 'Is this genuinely another view?', items: ['Different original evidence', 'Distinct incentives', 'Visible disagreement', 'Traceable citations'] },
+    footer: 'Prefer several independent, appropriate sources over many pages that echo one another.',
+  }],
+  ['chapter-09-claim-verification.png', 'flow', {
+    title: 'Verify a Claim, Not Just a Page', subtitle: 'Trace each important statement to evidence that directly supports it.',
+    steps: [
+      { label: 'Isolate claim', note: 'Write the exact|statement to test', tag: 'SPECIFIC' },
+      { label: 'Find origin', note: 'Prefer primary or|authoritative sources', tag: 'PROVENANCE' },
+      { label: 'Check date', note: 'Confirm the evidence|is still current', tag: 'TIMELY' },
+      { label: 'Read context', note: 'Inspect limits, scope,|and exceptions', tag: 'COMPLETE' },
+      { label: 'Cite precisely', note: 'Link the support near|the final claim', tag: 'TRACEABLE' },
+    ], footer: 'If the source does not directly support the wording, weaken or remove the claim.',
+  }],
+  ['chapter-09-personal-learning-loop.png', 'hub', {
+    title: 'A Personal Learning System', subtitle: 'Projects turn scattered explanations into durable skill.', center: 'Learning|project',
+    nodes: [
+      { label: 'Goal', note: 'A useful outcome' }, { label: 'Plan', note: 'Small milestones' },
+      { label: 'Practice', note: 'Work from memory' }, { label: 'Feedback', note: 'Specific errors' },
+      { label: 'Review', note: 'Spaced return' }, { label: 'Portfolio', note: 'Evidence of skill' },
+    ], footer: 'Keep a record of mistakes, fixes, and explanations you can reuse later.',
+  }],
+
+  ['chapter-10-task-triage.png', 'flow', {
+    title: 'Turn Daily Chaos Into Clear Tasks', subtitle: 'Separate capture from deciding what deserves action.',
+    steps: [
+      { label: 'Capture', note: 'Collect messages,|notes, and ideas', tag: 'INBOX' },
+      { label: 'Clarify', note: 'Define the actual|desired outcome', tag: 'MEANING' },
+      { label: 'Prioritize', note: 'Compare impact,|urgency, and effort', tag: 'CHOICE' },
+      { label: 'Schedule', note: 'Assign time, owner,|or next action', tag: 'COMMIT' },
+      { label: 'Review', note: 'Close, revise, defer,|or remove', tag: 'CONTROL' },
+    ], footer: 'A longer list is not a better system; every item needs a decision.',
+  }],
+  ['chapter-10-planning-horizons.png', 'stack', {
+    title: 'Plan at Three Time Horizons', subtitle: 'Each horizon answers a different question and should inform the next.',
+    levels: [
+      { label: 'Project', note: 'What outcome, milestones, risks, and dependencies matter?' },
+      { label: 'Week', note: 'Which commitments move the project now?' },
+      { label: 'Day', note: 'What are the few concrete next actions?' },
+      { label: 'Focus block', note: 'What will you do without switching context?' },
+      { label: 'Review', note: 'What changed, slipped, or no longer matters?' },
+    ], footer: 'Daily plans stay realistic when they are anchored to weekly and project choices.',
+  }],
+  ['chapter-10-personal-team.png', 'comparison', {
+    title: 'Personal and Team Workflows Need Different Controls', subtitle: 'Coordination adds ownership, handoffs, and shared evidence.',
+    left: { title: 'Personal workflow', subtitle: 'Optimize for your own attention', items: ['Flexible capture', 'Private priorities', 'Lightweight reminders', 'Fast personal review'] },
+    right: { title: 'Team workflow', subtitle: 'Optimize for shared understanding', items: ['Named owner and deadline', 'Visible status and blockers', 'Handoff criteria', 'Decision and evidence record'] },
+    footer: 'Do not scale a private habit into a team process without adding shared ownership.',
+  }],
+  ['chapter-10-sop-flow.png', 'flow', {
+    title: 'A Useful Standard Operating Procedure', subtitle: 'An SOP should make correct action easier and exceptions visible.',
+    steps: [
+      { label: 'Trigger', note: 'When does the|procedure begin?', tag: 'START' },
+      { label: 'Inputs', note: 'What access, data,|or materials are needed?', tag: 'READY' },
+      { label: 'Steps', note: 'What is the smallest|safe sequence?', tag: 'DO' },
+      { label: 'Exception', note: 'When should work stop|or escalate?', tag: 'PROTECT' },
+      { label: 'Evidence', note: 'What proves the task|was completed?', tag: 'RECORD' },
+    ], footer: 'Test an SOP with the person who performs the work, then revise confusing steps.',
+  }],
+  ['chapter-10-scheduled-lifecycle.png', 'hub', {
+    title: 'The Scheduled-Task Lifecycle', subtitle: 'Unattended work needs stronger setup and monitoring than a one-time prompt.', center: 'Scheduled|work',
+    nodes: [
+      { label: 'Test prompt', note: 'Run manually' }, { label: 'Narrow access', note: 'Least authority' },
+      { label: 'Set trigger', note: 'Time or event' }, { label: 'Observe', note: 'Early runs' },
+      { label: 'Handle failure', note: 'Stop or notify' }, { label: 'Review value', note: 'Keep or retire' },
+    ], footer: 'Every recurring task needs an owner, stop condition, and review cadence.',
+  }],
+
+  ['chapter-11-diverge-converge.png', 'comparison', {
+    title: 'Creative Work Alternates Between Expansion and Selection', subtitle: 'Separate idea generation from judgment so each mode can work well.',
+    left: { title: 'Diverge', subtitle: 'Increase the possibility space', items: ['Generate distinct directions', 'Change constraints deliberately', 'Seek surprising combinations', 'Delay premature ranking'] },
+    right: { title: 'Converge', subtitle: 'Choose and strengthen a direction', items: ['Compare against the brief', 'Combine compatible strengths', 'Test with the audience', 'Commit and refine'] },
+    footer: 'Repeat the two modes when feedback reveals that the chosen direction is weak.',
+  }],
+  ['chapter-11-creative-partnership.png', 'hub', {
+    title: 'The Human–AI Creative Partnership', subtitle: 'Speed comes from the system; taste and responsibility remain human.', center: 'Creative|brief',
+    nodes: [
+      { label: 'Intent', note: 'Human' }, { label: 'Taste', note: 'Human' },
+      { label: 'Options', note: 'AI-assisted' }, { label: 'Production', note: 'AI-assisted' },
+      { label: 'Feedback', note: 'People' }, { label: 'Selection', note: 'Human' },
+    ], footer: 'The brief is a living agreement about audience, emotion, constraints, and success.',
+  }],
+  ['chapter-11-idea-directions.png', 'flow', {
+    title: 'Generate Directions, Not Minor Variations', subtitle: 'Creative options should differ in a way that helps you choose.',
+    steps: [
+      { label: 'Brief', note: 'Audience, emotion,|constraints, medium', tag: 'ANCHOR' },
+      { label: 'Direction A', note: 'Familiar, clear,|low production risk', tag: 'SAFE' },
+      { label: 'Direction B', note: 'Distinctive concept|with a strong hook', tag: 'BOLD' },
+      { label: 'Direction C', note: 'Unexpected framing|or combination', tag: 'EXPERIMENT' },
+      { label: 'Compare', note: 'Rationale, risk,|cost, and fit', tag: 'DECIDE' },
+    ], footer: 'Ask what makes each direction meaningfully different before generating more variants.',
+  }],
+  ['chapter-11-media-pipeline.png', 'flow', {
+    title: 'From Creative Brief to Media Asset', subtitle: 'Images, videos, presentations, and games share a production logic.',
+    steps: [
+      { label: 'Brief', note: 'Audience, message,|format, and rights', tag: 'INTENT' },
+      { label: 'Concept', note: 'Narrative, visual|system, and references', tag: 'DIRECTION' },
+      { label: 'Prototype', note: 'Storyboard, mockup,|or playable slice', tag: 'TEST' },
+      { label: 'Produce', note: 'Create assets and|assemble the work', tag: 'BUILD' },
+      { label: 'Review', note: 'Truth, consent, pacing,|quality, and export', tag: 'APPROVE' },
+    ], footer: 'Confirm likeness, voice, brand, and source permissions before final production.',
+  }],
+  ['chapter-11-human-feedback.png', 'stack', {
+    title: 'Turn Creative Feedback Into Decisions', subtitle: 'Useful critique connects a reaction to the audience and the brief.',
+    levels: [
+      { label: 'Reaction', note: 'What did the reviewer notice or feel?' },
+      { label: 'Reason', note: 'Which element caused that response?' },
+      { label: 'Brief', note: 'Does it support the intended audience and goal?' },
+      { label: 'Change', note: 'What specific revision should be tested?' },
+      { label: 'Decision', note: 'Keep, combine, revise, or reject?' },
+    ], footer: 'Collect patterns across reviewers; do not average every preference into blandness.',
+  }],
+
+  ['chapter-12-small-business-pilot.png', 'flow', {
+    title: 'A 30-Day Small-Business AI Pilot', subtitle: 'Begin with one repeated workflow and measure practical value.',
+    steps: [
+      { label: 'Baseline', note: 'Document time, errors,|and current steps', tag: 'BEFORE' },
+      { label: 'Boundaries', note: 'Set data, approval,|and cost limits', tag: 'SAFE' },
+      { label: 'Pilot', note: 'Improve one frequent,|low-risk workflow', tag: 'TRY' },
+      { label: 'Measure', note: 'Track quality, time,|and exceptions', tag: 'EVIDENCE' },
+      { label: 'Decide', note: 'Expand, revise,|or stop', tag: 'OWNER' },
+    ], footer: 'A boring workflow with measurable value is a stronger start than a dramatic demo.',
+  }],
+  ['chapter-12-role-context.png', 'hub', {
+    title: 'Different Roles Need Different Context', subtitle: 'The same AI assistant should not receive the same brief from every role.', center: 'Business|outcome',
+    nodes: [
+      { label: 'Founder', note: 'Strategy and risk' }, { label: 'Manager', note: 'Owners and process' },
+      { label: 'Marketer', note: 'Audience and voice' }, { label: 'Developer', note: 'Repo and tests' },
+      { label: 'Finance', note: 'Numbers and controls' }, { label: 'Support', note: 'Policy and cases' },
+    ], footer: 'Provide the constraints that the role is accountable for, not merely a job title.',
+  }],
+  ['chapter-12-feedback-synthesis.png', 'flow', {
+    title: 'Turn Customer Feedback Into Action', subtitle: 'Summaries become useful only when they connect to evidence and ownership.',
+    steps: [
+      { label: 'Collect', note: 'Reviews, tickets, calls,|surveys, and notes', tag: 'VOICE' },
+      { label: 'Structure', note: 'Clean, tag, and preserve|source links', tag: 'DATA' },
+      { label: 'Find patterns', note: 'Themes, segments,|frequency, severity', tag: 'SIGNAL' },
+      { label: 'Prioritize', note: 'Connect to revenue,|retention, and trust', tag: 'DECISION' },
+      { label: 'Close loop', note: 'Assign action and|measure the result', tag: 'OWNER' },
+    ], footer: 'The loudest feedback is not automatically the most representative or important.',
+  }],
+  ['chapter-12-team-workflow.png', 'flow', {
+    title: 'Make Team Work Visible', subtitle: 'A shared workflow reduces ambiguity at every handoff.',
+    steps: [
+      { label: 'Request', note: 'Outcome, requester,|and priority', tag: 'INTAKE' },
+      { label: 'Owner', note: 'One accountable|person or team', tag: 'RESPONSIBLE' },
+      { label: 'Work', note: 'Status, dependencies,|and blockers', tag: 'VISIBLE' },
+      { label: 'Review', note: 'Evidence and approval|criteria', tag: 'QUALITY' },
+      { label: 'Learn', note: 'Decision record and|process improvement', tag: 'REUSE' },
+    ], footer: 'If ownership or completion criteria are unclear, automation will scale confusion.',
+  }],
+  ['chapter-12-internal-tool-gates.png', 'stack', {
+    title: 'Before You Build an Internal Tool', subtitle: 'A small tool still creates data, access, and maintenance obligations.',
+    levels: [
+      { label: 'Need', note: 'Does it remove repeated work or a costly error?' },
+      { label: 'Data', note: 'Which source is authoritative, sensitive, or stale?' },
+      { label: 'Access', note: 'Who can view, change, export, or approve?' },
+      { label: 'Failure', note: 'What happens when input or integration breaks?' },
+      { label: 'Ownership', note: 'Who maintains, supports, and retires it?' },
+    ], footer: 'The right internal tool is usually narrow, reliable, and easy to recover.',
+  }],
+
+  ['chapter-13-permission-layers.png', 'stack', {
+    title: 'Permission Is Layered', subtitle: 'Access at one layer does not grant authority at every later layer.',
+    levels: [
+      { label: 'Conversation', note: 'Messages, attachments, and available tools' },
+      { label: 'Project', note: 'Shared files, instructions, and connected context' },
+      { label: 'Service', note: 'Separate account authentication and scopes' },
+      { label: 'Execution', note: 'Sandbox, network, command, and file boundaries' },
+      { label: 'Consequence', note: 'Send, publish, merge, deploy, or delete approval' },
+    ], footer: 'Check the narrowest active boundary before every consequential action.',
+  }],
+  ['chapter-13-context-boundary.png', 'comparison', {
+    title: 'Useful Context Can Also Be Sensitive', subtitle: 'Choose the minimum information that supports the task.',
+    left: { title: 'Needed context', subtitle: 'Information that changes the answer', items: ['Relevant files or excerpts', 'Current instructions', 'Audience and constraints', 'Approved source material'] },
+    right: { title: 'Unnecessary exposure', subtitle: 'Information the task can avoid', items: ['Credentials and private keys', 'Unrelated personal files', 'Full customer records', 'Stale or untrusted instructions'] },
+    footer: 'Redact, summarize, or isolate sensitive material before sharing it with any tool.',
+  }],
+  ['chapter-13-plugin-boundary.png', 'flow', {
+    title: 'A Connected Tool Adds a Trust Boundary', subtitle: 'Every integration introduces another identity, permission, and data path.',
+    steps: [
+      { label: 'User intent', note: 'What outcome is|actually authorized?', tag: 'GOAL' },
+      { label: 'ChatGPT', note: 'What context and tool|is selected?', tag: 'ORCHESTRATE' },
+      { label: 'Connection', note: 'What scopes and account|are authenticated?', tag: 'ACCESS' },
+      { label: 'External service', note: 'What can be read,|written, or sent?', tag: 'ACTION' },
+      { label: 'Review', note: 'What evidence and|approval remain?', tag: 'CONTROL' },
+    ], footer: 'Installing a capability is not blanket approval to use every action it exposes.',
+  }],
+  ['chapter-13-approval-ladder.png', 'stack', {
+    title: 'Increase Confirmation as Consequences Rise', subtitle: 'Authority should grow more slowly than capability.',
+    levels: [
+      { label: 'Analyze', note: 'Read-only · private · reversible' },
+      { label: 'Draft', note: 'Proposed output · no external effect' },
+      { label: 'Modify', note: 'Workspace changes · reviewable diff' },
+      { label: 'Publish or send', note: 'External audience · reputation and privacy' },
+      { label: 'Deploy, merge, or delete', note: 'Operational or difficult-to-reverse effect' },
+    ], footer: 'Permission for a lower rung never implies permission for the next one.',
+  }],
+  ['chapter-13-evidence-review.png', 'hub', {
+    title: 'Evidence Before Acceptance', subtitle: 'Match the proof to the kind of work and the cost of being wrong.', center: 'Human|acceptance',
+    nodes: [
+      { label: 'Sources', note: 'Factual claims' }, { label: 'Diffs', note: 'File changes' },
+      { label: 'Tests', note: 'Behavior' }, { label: 'Renders', note: 'Visual output' },
+      { label: 'Logs', note: 'Runtime events' }, { label: 'Rollback', note: 'Recovery' },
+    ], footer: 'A green checkmark is one signal; it does not replace judgment about scope and impact.',
+  }],
+
+  ['chapter-14-work-environment.png', 'flow', {
+    title: 'From One Chat to a Work Environment', subtitle: 'AI work is expanding from answers into coordinated, persistent activity.',
+    steps: [
+      { label: 'Conversation', note: 'Ask, explain,|and explore', tag: 'MOMENT' },
+      { label: 'Project', note: 'Keep files, goals,|and instructions', tag: 'CONTEXT' },
+      { label: 'Tools', note: 'Act in approved|systems', tag: 'CAPABILITY' },
+      { label: 'Outputs', note: 'Create durable|documents and products', tag: 'ARTIFACT' },
+      { label: 'Review', note: 'Track evidence,|ownership, and change', tag: 'GOVERNANCE' },
+    ], footer: 'The interface becomes less important than the continuity of context, action, and review.',
+  }],
+  ['chapter-14-specialized-workspaces.png', 'hub', {
+    title: 'One Environment, Specialized Workspaces', subtitle: 'Different work benefits from different tools, context, and review surfaces.', center: 'Shared|environment',
+    nodes: [
+      { label: 'Conversation', note: 'Ideas and answers' }, { label: 'Code', note: 'Repositories' },
+      { label: 'Design', note: 'Interfaces' }, { label: 'Research', note: 'Sources' },
+      { label: 'Media', note: 'Images and video' }, { label: 'Operations', note: 'Recurring work' },
+    ], footer: 'Specialization should make boundaries clearer, not hide them.',
+  }],
+  ['chapter-14-persistent-context.png', 'stack', {
+    title: 'Persistent Context Needs Governance', subtitle: 'Remembering more is useful only when the system shows what is current and trusted.',
+    levels: [
+      { label: 'Purpose', note: 'The durable outcome and audience' },
+      { label: 'Sources', note: 'Origin, date, authority, and version' },
+      { label: 'Instructions', note: 'Scope, precedence, and accountable owner' },
+      { label: 'Permissions', note: 'Who and what may access or act' },
+      { label: 'Maintenance', note: 'Refresh, archive, export, or delete' },
+    ], footer: 'Persistent context without provenance becomes persistent confusion.',
+  }],
+  ['chapter-14-installable-capability.png', 'flow', {
+    title: 'Installable Capability Changes the System', subtitle: 'Adding a tool changes both what the application can do and what it must govern.',
+    steps: [
+      { label: 'Discover', note: 'Find a capability|for a defined need', tag: 'FIT' },
+      { label: 'Inspect', note: 'Review provider,|permissions, and data', tag: 'TRUST' },
+      { label: 'Connect', note: 'Authenticate the|correct account', tag: 'IDENTITY' },
+      { label: 'Use', note: 'Authorize a narrow|task and action', tag: 'SCOPE' },
+      { label: 'Review', note: 'Audit results and|remove unused access', tag: 'CONTROL' },
+    ], footer: 'A marketplace lowers setup friction; it does not eliminate dependency or permission risk.',
+  }],
+  ['chapter-14-appropriate-autonomy.png', 'comparison', {
+    title: 'The Practical Future Is Appropriate Autonomy', subtitle: 'Use more autonomy only when the environment and review can support it.',
+    left: { title: 'Quick assistance', subtitle: 'Small scope and low consequence', items: ['Short-lived context', 'Easy human inspection', 'Reversible output', 'Immediate clarification'] },
+    right: { title: 'Durable autonomy', subtitle: 'Longer-running and consequential work', items: ['Persistent state and logs', 'Narrow permissions', 'Monitoring and stop conditions', 'Named human ownership'] },
+    footer: 'Capability may be broad, but authority should remain proportional to risk and evidence.',
+  }],
+];
+
+const renderConcept = {
+  flow: conceptFlow,
+  comparison: conceptComparison,
+  hub: conceptHub,
+  stack: conceptStack,
+};
+
 const assets = [
   ['kix.m4a7d2c9f1be.png', chapter1WorkSurface()],
   ['kix.b8e2f6a1c4d7.png', chapter1CapabilityLevels()],
@@ -755,6 +1256,7 @@ const assets = [
   ['kix.22fon7v7odmd.png', chapter4MultilingualWorkflow()],
   ['kix.u5wgw05b4nca.png', chapter4PromptingPatterns()],
   ['kix.pi7mibo6lea2.png', chapter4FeedbackLoop()],
+  ...chapterDiagramSpecs.map(([filename, type, spec]) => [filename, renderConcept[type](spec)]),
 ];
 
 await fs.mkdir(OUT_DIR, { recursive: true });

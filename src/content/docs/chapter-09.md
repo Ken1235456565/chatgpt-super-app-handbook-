@@ -16,11 +16,25 @@ A good research question has a purpose. “Tell me about AI tools” is too broa
 
 If the human does not know what to ask, ChatGPT should use reverse prompting. It can ask: What decision are you trying to make? What do you already know? What would change your mind? Do you need a beginner explanation, a technical comparison, a market overview, or a practical plan?
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-09-research-question.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 9.1">
+    <img src="/images/chapter-09-research-question.png" alt="Research-question stack connecting a decision to scope, evidence, comparison, and a usable output." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 9.1.</strong> A useful research question defines the decision, scope, evidence, comparison, and final output.</figcaption>
+</figure>
+
 ## 9.2 ChatGPT as Tutor, Study Partner, and Explainer
 
 As a tutor, ChatGPT should diagnose before teaching. It should ask about the learner’s current level, goal, time, preferred style, and real project. It can explain a concept simply, then technically, then through examples, then through practice questions.
 
 The strongest learning mode is interactive. Instead of asking ChatGPT to lecture, ask it to question you. “Teach me this concept, but stop after each step and ask me to explain it back.” This helps reveal misunderstandings. Human answers may be imprecise, and that is useful. ChatGPT can translate imperfect answers into clearer understanding.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-09-learning-loop.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 9.2">
+    <img src="/images/chapter-09-learning-loop.png" alt="Active learning loop from explanation and examples through practice, feedback, and teaching the idea back." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 9.2.</strong> Learning becomes active when explanation leads to practice, feedback, and a teach-back.</figcaption>
+</figure>
 
 ## 9.3 Learning Through Projects, Not Just Answers
 
@@ -33,6 +47,13 @@ The project should produce evidence: a working page, a script output, a quiz sco
 Research should include more than one viewpoint. ChatGPT can compare official documentation, academic research, practitioner experience, community discussions, vendor claims, and critical perspectives. It can identify where sources agree, where they conflict, and what each source may be biased to emphasize.
 
 Humans should ask ChatGPT for dates, source types, citations, and confidence limits. Product features, laws, prices, APIs, leadership, market data, and safety recommendations can change. For current or high-stakes topics, use current reliable sources rather than relying on model memory.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-09-source-comparison.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 9.3">
+    <img src="/images/chapter-09-source-comparison.png" alt="Comparison of source quality criteria with source independence criteria." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 9.3.</strong> Strong research checks both whether a source is appropriate and whether it provides genuinely independent evidence.</figcaption>
+</figure>
 
 ## 9.5 Building Study Guides, Quizzes, and Practice Plans
 
@@ -52,6 +73,13 @@ Fact-checking is central to research. Dates, prices, laws, APIs, product names, 
 
 Humans should inspect whether the source is official, recent, relevant, and independent. A vendor page may be accurate about features but biased about tradeoffs. A forum post may reveal real problems but not represent the average user. A summary without source context is not enough for serious decisions.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-09-claim-verification.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 9.4">
+    <img src="/images/chapter-09-claim-verification.png" alt="Claim-verification process that isolates the claim, finds its origin, checks the date and context, and cites the evidence precisely." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 9.4.</strong> Verify the exact claim against a current, contextualized source before citing it.</figcaption>
+</figure>
+
 ## 9.8 Avoiding Shallow Understanding
 
 Shallow understanding feels like clarity but fails under pressure. Warning signs include being able to repeat a definition without giving an example, accepting a conclusion without knowing its limits, or following a tutorial without being able to change it. ChatGPT can test for depth by asking for examples, counterexamples, explanations, and transfer tasks.
@@ -63,6 +91,13 @@ A useful prompt is: “Do not just explain this. Ask me questions that reveal wh
 A personal learning loop has five parts: choose a goal, learn the minimum concept, apply it in a project, review mistakes, and schedule the next challenge. ChatGPT can maintain the loop by creating practice plans, summarizing errors, generating exercises, and reminding the learner what remains weak.
 
 The long-term asset is not one answer. It is a personal knowledge system: notes, examples, projects, wrong answers, corrected explanations, templates, and questions worth revisiting. ChatGPT can help organize that system, but the human builds understanding by using it.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-09-personal-learning-loop.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 9.5">
+    <img src="/images/chapter-09-personal-learning-loop.png" alt="Personal learning project connected to a goal, plan, practice, feedback, review, and portfolio evidence." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 9.5.</strong> A personal learning system turns goals, practice, mistakes, and review into durable evidence of skill.</figcaption>
+</figure>
 
 Collaboration Pattern
 

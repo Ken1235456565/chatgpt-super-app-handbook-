@@ -14,13 +14,34 @@ Trust depends on matching authority to consequence. ChatGPT, Codex, Projects, Pl
 
 An ordinary chat can use the messages, attachments, and tools available to that chat. Do not upload sensitive information merely because analysis is convenient. Remove unnecessary personal, financial, health, legal, credential, and customer data before sharing it.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-13-permission-layers.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 13.1">
+    <img src="/images/chapter-13-permission-layers.png" alt="Layered permission model covering conversation context, project context, service authentication, execution boundaries, and consequential actions." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 13.1.</strong> Permission is layered; access at one layer does not grant authority at every later layer.</figcaption>
+</figure>
+
 ## 13.2 Project Context
 
 A ChatGPT Project can share files, instructions, and connected sources across related chats. A local project can connect to folders on a computer. Project membership organizes context; it does not replace service authentication, sandbox rules, approvals, or organization policy.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-13-context-boundary.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 13.2">
+    <img src="/images/chapter-13-context-boundary.png" alt="Comparison of task-relevant context with unnecessary exposure of credentials, personal files, customer records, and untrusted instructions." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 13.2.</strong> Provide the minimum trusted context that changes the answer, and isolate unnecessary sensitive material.</figcaption>
+</figure>
+
 ## 13.3 Plugin Permissions
 
 Use [Chapter 3](/chapter-03/#36-using-plugins-skills-connectors-and-apps) for the Plugin vocabulary. Before enabling a Plugin, inspect what it can read, write, send, or execute. Connected services may require separate authentication and apply their own access controls, terms, retention rules, and privacy policies.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-13-plugin-boundary.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 13.3">
+    <img src="/images/chapter-13-plugin-boundary.png" alt="Connected-tool trust path from user intent through ChatGPT, an authenticated connection, an external service, and human review." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 13.3.</strong> A connected tool adds identity, permission, data, and review boundaries to the workflow.</figcaption>
+</figure>
 
 ## 13.4 Codex Sandbox and Approvals
 
@@ -42,9 +63,23 @@ Repository content, issue bodies, commit messages, and review comments can conta
 
 Analyze, draft, modify, push, publish, send, deploy, merge, and delete are different levels of consequence. Permission for a low-impact step should not be interpreted as permission for every later step. Require stronger review as reversibility decreases and external impact increases.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-13-approval-ladder.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 13.4">
+    <img src="/images/chapter-13-approval-ladder.png" alt="Approval ladder rising from analysis and drafting through workspace modification, external publication, and operational actions such as deployment or deletion." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 13.4.</strong> Human confirmation should increase as actions become more external, consequential, or difficult to reverse.</figcaption>
+</figure>
+
 ## 13.9 Evidence and Verification
 
 Ask what was inspected, changed, run, cited, or left unverified. A polished answer, green checkmark, generated screenshot, or passing test is one form of evidence, not proof that every fact, user flow, permission, or production condition is correct.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-13-evidence-review.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 13.5">
+    <img src="/images/chapter-13-evidence-review.png" alt="Human acceptance hub connected to sources, diffs, tests, renders, logs, and rollback evidence." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 13.5.</strong> Acceptance should use evidence appropriate to the work and retain a recovery path.</figcaption>
+</figure>
 
 ## 13.10 Responsibility
 

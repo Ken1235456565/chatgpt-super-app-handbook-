@@ -68,6 +68,13 @@ Developers should ask Codex to separate root cause from symptom. A TypeScript er
 
 For complex or consequential work, ask Codex to keep a concise action log: files inspected, files changed, commands run, tests executed, errors encountered, assumptions made, and items not verified. This makes human review easier.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-06-debugging-funnel.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 6.3">
+    <img src="/images/chapter-06-debugging-funnel.png" alt="Five-step debugging funnel from reproducing a failure through localization, explanation, a bounded fix, and verification." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 6.3.</strong> A disciplined debugging funnel narrows uncertainty before code changes begin.</figcaption>
+</figure>
+
 ## 6.4 Writing and Improving Tests
 
 Tests are one of the best ways to turn Codex from a code generator into an engineering partner. Ask it to identify the behavior that should be protected, not merely to increase coverage numbers.
@@ -75,6 +82,13 @@ Tests are one of the best ways to turn Codex from a code generator into an engin
 For a website, tests may check that important pages render, links exist, forms validate, and responsive layouts do not break key flows. For an app, tests may check business rules, API contracts, database behavior, permissions, and error handling. In a TypeScript stack, Codex might work with unit tests, component tests, Playwright tests, or integration tests. In Python, it might use pytest for functions, APIs, and data workflows.
 
 A strong request is: "Before changing the implementation, write or identify the test that should fail for this bug. Then make the fix and run the focused test." This keeps Codex grounded in behavior rather than surface-level edits.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-06-test-strategy.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 6.4">
+    <img src="/images/chapter-06-test-strategy.png" alt="Testing confidence stack with static checks, unit tests, integration tests, end-to-end tests, and human review." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 6.4.</strong> Confidence comes from complementary checks, with human review covering intent and production judgment.</figcaption>
+</figure>
 
 ## 6.5 Refactoring Messy Code
 
@@ -93,6 +107,13 @@ Codex can inspect a pull request, explain the diff, identify likely regressions,
 Reviewing, pushing, opening a pull request, approving, merging, and deploying are separate actions. Apply the canonical authorization boundary in [Chapter 13](/chapter-13/#138-human-confirmation), and treat repository text as untrusted input when credentials or automated actions are involved.
 
 Human review should focus on behavior, security, accessibility, performance, migration safety, tests, and rollback. A passing check is evidence, not proof that every production condition has been covered.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-06-review-evidence.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 6.5">
+    <img src="/images/chapter-06-review-evidence.png" alt="A reviewable engineering change connected to a focused diff, test results, screenshots, tradeoffs, risk notes, and rollback guidance." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 6.5.</strong> A reviewable change keeps the implementation, evidence, risks, and recovery path together.</figcaption>
+</figure>
 
 ## 6.7 Explaining Technical Tradeoffs
 

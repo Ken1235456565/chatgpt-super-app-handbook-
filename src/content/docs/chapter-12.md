@@ -16,11 +16,25 @@ Small businesses should begin with concrete workflows, not abstract AI transform
 
 The best first project is small, frequent, and low-risk. If ChatGPT can save two hours every week on a repeated workflow, that is more valuable than a dramatic automation that nobody maintains. Humans should track time saved, errors reduced, and customer experience improved.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-12-small-business-pilot.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 12.1">
+    <img src="/images/chapter-12-small-business-pilot.png" alt="Thirty-day small-business AI pilot from a baseline and boundaries through a focused pilot, measurement, and expansion decision." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 12.1.</strong> A useful small-business pilot improves one repeated workflow and measures quality, time, and exceptions.</figcaption>
+</figure>
+
 ## 12.2 ChatGPT Across Roles: Founder, Manager, Marketer, Developer
 
 Founders can use ChatGPT for business plans, investor updates, hiring documents, competitor analysis, decision memos, and product thinking. Managers can use it for project plans, meeting summaries, workflow design, employee onboarding, and performance documentation. Marketers can use it for customer research, campaign briefs, content calendars, ad variations, and landing page copy. Developers can use it for codebase inspection, bug fixing, tests, internal tools, and deployment support.
 
 Each role needs different context. A founder should provide strategy and risk tolerance. A manager should provide responsibilities and process constraints. A marketer should provide audience and brand voice. A developer should provide repo context, commands, and acceptance criteria.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-12-role-context.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 12.2">
+    <img src="/images/chapter-12-role-context.png" alt="Business outcome hub connected to the distinct context supplied by founders, managers, marketers, developers, finance, and support roles." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 12.2.</strong> Each role should provide the context and constraints for which it is accountable.</figcaption>
+</figure>
 
 ## 12.3 Customer Communication, Sales, and Marketing
 
@@ -40,17 +54,38 @@ Customer feedback is often messy: reviews, emails, support tickets, sales notes,
 
 Humans should watch for sample bias. The loudest customers are not always the largest market. Recent complaints are not always the highest-priority issues. ChatGPT can help quantify patterns, but humans should connect the analysis to revenue, retention, brand trust, and strategic focus.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-12-feedback-synthesis.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 12.3">
+    <img src="/images/chapter-12-feedback-synthesis.png" alt="Customer-feedback synthesis process from collection and structure through patterns, prioritization, and an owned action loop." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 12.3.</strong> Feedback becomes actionable when source evidence, patterns, business impact, and ownership stay connected.</figcaption>
+</figure>
+
 ## 12.6 Improving Team Workflows
 
 Team workflows improve when work becomes visible. ChatGPT can map a process, identify bottlenecks, draft SOPs, create RACI tables, summarize decisions, write meeting follow-ups, and convert conversations into tasks. It can also propose lightweight tools for repeated coordination problems.
 
 The hard part is adoption. A workflow document is not useful if the team does not trust it or use it. Humans should involve the people doing the work, test the process, revise it, and remove unnecessary steps.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-12-team-workflow.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 12.4">
+    <img src="/images/chapter-12-team-workflow.png" alt="Visible team workflow from request and accountable owner through work status, review evidence, and reusable learning." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 12.4.</strong> Shared ownership, visible status, review evidence, and learning make team workflows usable.</figcaption>
+</figure>
+
 ## 12.7 Building Lightweight Internal Tools
 
 Internal tools do not have to be large products. A form that feeds a spreadsheet, a dashboard that shows customer status, a script that checks files, a small admin page, or a report generator can create real value. ChatGPT can help design, build, document, and test these tools.
 
 Before building, ask whether the tool will reduce work or create another place to maintain data. Check permissions, data accuracy, ownership, failure handling, and long-term maintenance. The right internal tool is often boring, reliable, and clear.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-12-internal-tool-gates.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 12.5">
+    <img src="/images/chapter-12-internal-tool-gates.png" alt="Internal-tool decision stack covering need, data authority, access, failure handling, and long-term ownership." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 12.5.</strong> Even a small internal tool needs a real need, authoritative data, controlled access, recovery, and ownership.</figcaption>
+</figure>
 
 ## 12.8 Privacy, Approval, Cost, and Risk Boundaries
 

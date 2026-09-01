@@ -16,11 +16,25 @@ Creative work rarely starts with the perfect idea. It starts with many imperfect
 
 A good creative prompt asks for variety and reasoning. “Give me ten campaign directions, each with audience, emotional promise, visual language, risk, and why it might fail.” This gives the human material to judge rather than a single answer to accept.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-11-diverge-converge.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 11.1">
+    <img src="/images/chapter-11-diverge-converge.png" alt="Comparison of divergent creative exploration with convergent selection and refinement." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 11.1.</strong> Creative work alternates between expanding the possibility space and selecting a direction against the brief.</figcaption>
+</figure>
+
 ## 11.2 Working With ChatGPT as a Creative Partner
 
 A creative partner does more than obey. ChatGPT can challenge clichés, ask about audience, identify overused ideas, propose constraints, and help combine directions. The human can respond with taste: “This is too generic,” “Make it quieter,” “Keep the structure but make the emotional center sharper,” or “Give me a version that feels less like advertising.”
 
 This is equal collaboration. The human is not passive, and ChatGPT is not the final judge. The useful loop is prompt, generate, react, refine, compare, and select.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-11-creative-partnership.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 11.2">
+    <img src="/images/chapter-11-creative-partnership.png" alt="Creative brief hub connecting human intent and taste, AI-assisted options and production, audience feedback, and human selection." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 11.2.</strong> The creative brief coordinates human intent and taste with AI-assisted exploration and production.</figcaption>
+</figure>
 
 ## 11.3 Brainstorming Names, Concepts, and Directions
 
@@ -28,17 +42,38 @@ Naming and concept work need criteria. A name may be memorable but hard to prono
 
 Humans should review meaning, sound, cultural associations, trademark risk, domain availability, audience fit, and long-term flexibility. ChatGPT can widen the search, but humans choose what feels right and responsible.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-11-idea-directions.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 11.3">
+    <img src="/images/chapter-11-idea-directions.png" alt="Creative-direction workflow from a brief through safe, bold, and experimental options to a structured comparison." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 11.3.</strong> Meaningfully different directions reveal tradeoffs better than a large set of minor variations.</figcaption>
+</figure>
+
 ## 11.4 Stories, Scripts, Briefs, Images, and Moodboards
 
 ChatGPT can help create story outlines, scripts, scene lists, visual briefs, shot lists, interview questions, image prompts, style references, and moodboard directions. It can translate an abstract mood into concrete choices: setting, light, color, lens, pacing, music, typography, and motion.
 
 HeyGen is valuable when the creative output needs a presenter, avatar, spokesperson, training host, multilingual voice, or fast explainer. HyperFrames by HeyGen is valuable when a team wants to turn web pages, product UI, captions, data, and brand elements into video-like motion. Remotion is valuable when creative video must be generated through code, reused, localized, personalized, or connected to data. These tools are production accelerators, not substitutes for creative judgment.
 
+<figure>
+  <a class="figure-zoom" href="/images/chapter-11-media-pipeline.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 11.4">
+    <img src="/images/chapter-11-media-pipeline.png" alt="Creative media pipeline from a brief and concept through prototyping, production, and rights-aware final review." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 11.4.</strong> Images, videos, presentations, and games share a production path from brief to reviewed asset.</figcaption>
+</figure>
+
 ## 11.5 Getting Feedback From Humans, Not Just AI
 
 AI feedback is useful early, but real audience feedback is different. People may react to a story, image, name, or video in ways a model cannot predict. ChatGPT can prepare feedback questions, summarize responses, identify patterns, and propose revisions.
 
 Humans should decide whose feedback matters. A client, target user, editor, designer, and random viewer may all see different problems. The goal is not to obey every opinion. The goal is to understand the pattern behind the reaction.
+
+<figure>
+  <a class="figure-zoom" href="/images/chapter-11-human-feedback.png" data-figure-zoom target="_blank" rel="noopener" aria-label="Enlarge Figure 11.5">
+    <img src="/images/chapter-11-human-feedback.png" alt="Creative feedback stack moving from a reaction and its reason through the brief, a proposed change, and a decision." width="1920" height="930" loading="lazy" decoding="async" />
+  </a>
+  <figcaption><strong>Figure 11.5.</strong> Useful creative feedback connects a reaction to the brief and a specific decision.</figcaption>
+</figure>
 
 ## 11.6 Revising, Combining, and Selecting Ideas
 
