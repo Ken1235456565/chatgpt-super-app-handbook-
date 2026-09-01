@@ -765,7 +765,8 @@ function conceptFlow({ title: titleText, subtitle, steps, footer }) {
     body += rect(x + 28, cardY + 366, cardW - 56, 42, { fill: soft, stroke: soft, radius: 21 });
     body += text(x + cardW / 2, cardY + 395, step.tag || 'CHECK', { size: 19, weight: 700, fill: color, anchor: 'middle', letterSpacing: 1.2 });
     if (index < count - 1) {
-      body += lineArrow(x + cardW + 8, cardY + cardH / 2, x + cardW + gap - 10, cardY + cardH / 2, { color: C.blue, width: 4, head: 10 });
+      const nextX = startX + (index + 1) * (cardW + gap);
+      body += lineArrow(x + cardW, cardY + cardH / 2, nextX, cardY + cardH / 2, { color: C.blue, width: 4, head: 10 });
     }
   });
 
