@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dev",
+      "runtimeExecutable": "/Users/lady_penguin/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback/pnpm",
+      "runtimeArgs": ["run", "dev"],
+      "env": { "PATH": "/Users/lady_penguin/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin:/Users/lady_penguin/.cache/codex-runtimes/codex-primary-runtime/dependencies/bin/fallback:/usr/bin:/bin" },
+      "port": 4321
+    }
+  ]
+}
