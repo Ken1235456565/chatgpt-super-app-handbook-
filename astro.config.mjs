@@ -1,6 +1,7 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import starlight from '@astrojs/starlight';
+import vercel from '@astrojs/vercel';
 
 const site = process.env.SITE_URL || 'https://chatgpt-super-app-handbook.vercel.app';
 
@@ -21,8 +22,24 @@ const chapters = [
   ['Chapter 14 · The Future of AI Super-Apps', '/chapter-14/'],
 ];
 
+const serverSecret = { context: 'server', access: 'secret', optional: true };
+
 export default defineConfig({
   site,
+  // Pages stay prerendered; only the guestbook routes opt into on-demand rendering.
+  adapter: vercel(),
+  env: {
+    schema: {
+      SUPABASE_URL: envField.string(serverSecret),
+      SUPABASE_SECRET_KEY: envField.string(serverSecret),
+      OPENAI_API_KEY: envField.string(serverSecret),
+      OPENAI_TRANSLATE_MODEL: envField.string(serverSecret),
+      TURNSTILE_SECRET_KEY: envField.string(serverSecret),
+      ADMIN_PASSWORD_HASH: envField.string(serverSecret),
+      SESSION_SECRET: envField.string(serverSecret),
+      PUBLIC_TURNSTILE_SITE_KEY: envField.string({ context: 'client', access: 'public', optional: true }),
+    },
+  },
   integrations: [
     starlight({
       title: 'Understanding ChatGPT',
@@ -32,7 +49,13 @@ export default defineConfig({
       lastUpdated: true,
       pagination: true,
       sidebar: [
-        { label: 'Start here', items: [{ label: 'Handbook home', link: '/' }] },
+        {
+          label: 'Start here',
+          items: [
+            { label: 'Handbook home', link: '/' },
+            { label: 'Guestbook', link: '/guestbook/' },
+          ],
+        },
         {
           label: 'The handbook',
           items: chapters.map(([label, link]) => ({ label, link })),
@@ -45,6 +68,6 @@ export default defineConfig({
         { tag: 'script', attrs: { src: '/scripts/figure-lightbox.js', defer: true } },
       ],
     }),
-    sitemap(),
+    sitemap({ filter: (page) => !page.includes('/guestbook/admin') }),
   ],
 });

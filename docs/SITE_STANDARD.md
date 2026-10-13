@@ -2,12 +2,13 @@
 
 ## Technical baseline
 
-- Use Astro and Starlight with static output.
+- Use Astro and Starlight. Content pages are prerendered; only approved interactive features render on demand through `@astrojs/vercel`.
 - Keep chapter content in `src/content/docs/` as Markdown or MDX.
 - Keep approved images in `public/images/`.
-- Keep the production output in `dist/` and exclude it from Git.
+- Keep build output (`dist/`, `.vercel/`) out of Git.
 - Support Node.js 22.12 or later and use the checked-in pnpm lockfile.
 - Avoid adding a framework, server runtime, database, or analytics service without a documented need and approval.
+- Approved exception: the reader guestbook uses Vercel functions, Supabase, OpenAI, and Cloudflare Turnstile as specified in `docs/COMMENT_FEATURE_DESIGN.md`.
 
 ## Information architecture
 
@@ -15,6 +16,7 @@
 - Sidebar: expose all 14 chapters in book order.
 - Chapter page: show local table of contents, previous/next navigation, and searchable body content.
 - Reference links: remain subordinate to the chapter narrative.
+- Guestbook: one page outside the 14 chapters, linked from the **Start here** sidebar group.
 
 ## Visual direction
 
@@ -40,7 +42,7 @@ The site should feel like a calm technical field guide: dense enough for serious
 
 - Generate static pages and a local search index.
 - Serve document images locally with dimensions or stable containers to limit layout shift.
-- Avoid third-party client scripts by default.
+- Avoid third-party client scripts by default. The Turnstile script is allowed on `/guestbook/` only.
 - The deployed site must build without access to Google Drive.
 - Use `SITE_URL` at build time for the production origin, sitemap, and canonical URLs.
 

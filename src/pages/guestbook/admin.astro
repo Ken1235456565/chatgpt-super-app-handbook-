@@ -1,0 +1,87 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { isAdmin } from '../../lib/guestbook/security';
+
+export const prerender = false;
+
+const admin = await isAdmin(Astro.cookies);
+Astro.response.headers.set('Cache-Control', 'no-store');
+Astro.response.headers.set('X-Robots-Tag', 'noindex');
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Guestbook administration',
+    description: 'Administrator sign-in for the guestbook.',
+    tableOfContents: false,
+    prev: false,
+    next: false,
+    pagefind: false,
+    head: [{ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' } }],
+  }}
+>
+  {admin ? (
+    <div class="gb-admin">
+      <p>You are signed in. Delete buttons now appear on each comment in the <a href="/guestbook/">guestbook</a>.</p>
+      <button type="button" id="gb-logout">Sign out</button>
+    </div>
+  ) : (
+    <form class="gb-admin" id="gb-login">
+      <label for="gb-password">Administrator password</label>
+      <input id="gb-password" name="password" type="password" autocomplete="current-password" required />
+      <button type="submit">Sign in</button>
+      <p id="gb-login-status" role="alert"></p>
+    </form>
+  )}
+</StarlightPage>
+
+<script>
+  const login = document.querySelector<HTMLFormElement>('#gb-login');
+  const status = document.querySelector<HTMLElement>('#gb-login-status');
+
+  login?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const response = await fetch('/api/admin/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: new FormData(login).get('password') }),
+    });
+    if (response.ok) {
+      location.href = '/guestbook/';
+    } else if (status) {
+      const result = await response.json().catch(() => ({}));
+      status.textContent = result.error ?? 'Sign-in failed.';
+    }
+  });
+
+  document.querySelector('#gb-logout')?.addEventListener('click', async () => {
+    await fetch('/api/admin/logout', { method: 'POST' });
+    location.reload();
+  });
+</script>
+
+<style>
+  .gb-admin { display: grid; gap: 0.5rem; max-width: 24rem; }
+  .gb-admin label { font-weight: 600; color: var(--sl-color-white); }
+  .gb-admin input {
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-white);
+    font: inherit;
+  }
+  .gb-admin button {
+    justify-self: start;
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background: var(--sl-color-accent);
+    color: var(--sl-color-black);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .gb-admin :is(input, button):focus-visible { outline: 2px solid var(--sl-color-accent); outline-offset: 2px; }
+  #gb-login-status { margin: 0; color: var(--sl-color-red-high); }
+</style>

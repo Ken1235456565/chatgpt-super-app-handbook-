@@ -24,17 +24,23 @@ pnpm build
 pnpm preview
 ```
 
-The static production site is generated in `dist/`.
+Chapter pages are prerendered as static HTML. The guestbook page and its API routes run on demand through the Vercel adapter; the build output is written to `.vercel/output/`.
 
 ## Deploy to Vercel
 
 1. Push this directory to a GitHub repository.
 2. In Vercel, choose **Add New → Project** and import the repository.
-3. Vercel detects Astro automatically. The included `vercel.json` runs `pnpm build` and publishes `dist/`.
+3. Vercel detects Astro automatically. The included `vercel.json` runs `pnpm build`; the Vercel adapter produces the deployment output.
 4. Add `SITE_URL` in **Project Settings → Environment Variables**, using the final production origin, for example `https://handbook.example.com`.
 5. Redeploy after adding the custom domain so sitemap and canonical site metadata use the final origin.
 
-No database, server runtime, or secrets are required.
+The guestbook additionally needs Supabase, OpenAI, and Cloudflare Turnstile credentials. See `docs/COMMENT_FEATURE_DESIGN.md` and `.env.example`.
+
+## Guestbook
+
+`/guestbook/` lets readers post comments without signing in, in any language; non-English comments get an English translation. An administrator signs in at `/guestbook/admin/` to delete comments.
+
+`pnpm dev` runs the guestbook without external accounts (in-memory comments, placeholder translation, Turnstile test keys). Only `ADMIN_PASSWORD_HASH` and `SESSION_SECRET` are needed in `.env`; generate the hash with `pnpm guestbook:hash-password`. For production, run `supabase/migrations/0001_guestbook_messages.sql` in Supabase and set every variable listed in `.env.example` in Vercel.
 
 ## Refresh content from a trusted Google Docs read
 
@@ -58,7 +64,11 @@ The importer:
 ```text
 src/content/docs/    Homepage and generated chapter pages
 src/styles/          Site theme and responsive layout
-scripts/             Google Docs-to-Markdown importer
+src/pages/guestbook/ Guestbook and administrator pages
+src/pages/api/       Guestbook API routes
+src/lib/guestbook/   Guestbook storage, translation, moderation, and auth
+supabase/            Guestbook database migration
+scripts/             Google Docs importer and admin password hash helper
 public/images/       Locally served document images
 astro.config.mjs     Navigation, metadata, and integrations
 vercel.json          Vercel build settings

@@ -1,0 +1,237 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import { config, LIMITS } from '../../lib/guestbook/config';
+import { isAdmin } from '../../lib/guestbook/security';
+import { getStore, type Message } from '../../lib/guestbook/store';
+
+export const prerender = false;
+
+let messages: Message[] = [];
+let loadError = false;
+try {
+  messages = await getStore().list();
+} catch {
+  loadError = true;
+}
+const admin = await isAdmin(Astro.cookies);
+Astro.response.headers.set('Cache-Control', 'no-store');
+
+const formatDate = (iso: string) =>
+  new Date(iso).toLocaleString('en', { dateStyle: 'medium', timeStyle: 'short', timeZone: 'UTC' }) + ' UTC';
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Guestbook',
+    description: 'Leave a comment or feedback on the handbook in any language. No sign-in required.',
+    tableOfContents: false,
+    prev: false,
+    next: false,
+  }}
+>
+  {config.turnstileSiteKey && (
+    <script is:inline src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  )}
+
+  <p>
+    The handbook is in a public trial. Tell us what helped, what was unclear, or what is missing. You can write in
+    any language; comments that are not in English get an automatic English translation, which may be imperfect.
+  </p>
+
+  <form class="gb-form" id="gb-form" novalidate>
+    <label for="gb-name">Name <span class="gb-hint">(optional)</span></label>
+    <input id="gb-name" name="name" type="text" maxlength={LIMITS.nameLength} autocomplete="nickname" placeholder="Anonymous" />
+
+    <label for="gb-body">Comment</label>
+    <textarea id="gb-body" name="body" rows="5" maxlength={LIMITS.bodyLength} required aria-describedby="gb-body-hint"></textarea>
+    <p class="gb-hint" id="gb-body-hint">
+      Up to {LIMITS.bodyLength} characters. Comments are public and are checked automatically before they appear.
+    </p>
+
+    {config.turnstileSiteKey ? (
+      <div class="cf-turnstile" data-sitekey={config.turnstileSiteKey}></div>
+    ) : (
+      <p class="gb-status" data-tone="error">Posting is unavailable: the human check is not configured.</p>
+    )}
+
+    <div class="gb-actions">
+      <button type="submit" disabled={!config.turnstileSiteKey}>Post comment</button>
+      <p class="gb-status" id="gb-status" role="status" aria-live="polite"></p>
+    </div>
+  </form>
+
+  <h2 id="comments">Comments</h2>
+
+  {admin && (
+    <p class="gb-admin-bar">
+      Signed in as administrator. <a href="/guestbook/admin/">Manage session</a>
+    </p>
+  )}
+
+  {loadError ? (
+    <p class="gb-status" data-tone="error">Comments could not be loaded. Please try again later.</p>
+  ) : messages.length === 0 ? (
+    <p>No comments yet. Be the first to leave one.</p>
+  ) : (
+    <ol class="gb-list" id="gb-list">
+      {messages.map((message) => (
+        <li class="gb-item" data-id={message.id}>
+          <div class="gb-meta">
+            <strong>{message.name}</strong>
+            <time datetime={message.createdAt}>{formatDate(message.createdAt)}</time>
+            {admin && (
+              <button type="button" class="gb-delete" data-id={message.id} aria-label={`Delete comment by ${message.name}`}>
+                Delete
+              </button>
+            )}
+          </div>
+          <p class="gb-body" lang={message.lang === 'und' ? undefined : message.lang}>{message.body}</p>
+          {message.translation && (
+            <p class="gb-translation" lang="en">
+              <span class="gb-translation-label">English translation:</span> {message.translation}
+            </p>
+          )}
+        </li>
+      ))}
+    </ol>
+  )}
+</StarlightPage>
+
+<script>
+  type Turnstile = { reset: () => void };
+
+  const form = document.querySelector<HTMLFormElement>('#gb-form');
+  const status = document.querySelector<HTMLElement>('#gb-status');
+
+  function show(message: string, tone: 'error' | 'ok') {
+    if (!status) return;
+    status.textContent = message;
+    status.dataset.tone = tone;
+  }
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const data = new FormData(form);
+    const body = String(data.get('body') ?? '').trim();
+    if (!body) return show('Please write a comment.', 'error');
+
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (button) button.disabled = true;
+    show('Posting…', 'ok');
+
+    try {
+      const response = await fetch('/api/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          body,
+          token: data.get('cf-turnstile-response'),
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.error ?? 'The comment could not be posted.');
+      show('Posted. Reloading…', 'ok');
+      location.reload();
+    } catch (error) {
+      show(error instanceof Error ? error.message : 'The comment could not be posted.', 'error');
+      (window as unknown as { turnstile?: Turnstile }).turnstile?.reset();
+      if (button) button.disabled = false;
+    }
+  });
+
+  document.querySelector('#gb-list')?.addEventListener('click', async (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>('.gb-delete');
+    if (!button || !confirm('Delete this comment? It will be hidden from the guestbook.')) return;
+
+    button.disabled = true;
+    const response = await fetch(`/api/messages/${button.dataset.id}`, { method: 'DELETE' });
+    if (response.ok) {
+      button.closest('.gb-item')?.remove();
+    } else {
+      const result = await response.json().catch(() => ({}));
+      alert(result.error ?? 'The comment could not be deleted.');
+      button.disabled = false;
+    }
+  });
+</script>
+
+<style>
+  .gb-form {
+    display: grid;
+    gap: 0.5rem;
+    padding: 1.25rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.75rem;
+    background: var(--sl-color-bg-nav);
+  }
+  .gb-form label { font-weight: 600; color: var(--sl-color-white); }
+  .gb-form input,
+  .gb-form textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-white);
+    font: inherit;
+  }
+  .gb-form textarea { resize: vertical; min-height: 7rem; }
+  .gb-form :is(input, textarea, button):focus-visible {
+    outline: 2px solid var(--sl-color-accent);
+    outline-offset: 2px;
+  }
+  .gb-hint { margin: 0; font-size: var(--sl-text-sm); color: var(--sl-color-gray-3); font-weight: 400; }
+  .gb-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; margin-top: 0.5rem; }
+  .gb-actions .gb-status { margin: 0; }
+  .gb-form button,
+  .gb-delete {
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background: var(--sl-color-accent);
+    color: var(--sl-color-black);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .gb-form button:disabled,
+  .gb-delete:disabled { opacity: 0.6; cursor: not-allowed; }
+  .gb-status[data-tone='error'] { color: var(--sl-color-red-high); }
+  .gb-status[data-tone='ok'] { color: var(--sl-color-gray-2); }
+  .gb-admin-bar {
+    padding: 0.5rem 0.75rem;
+    border-left: 3px solid var(--sl-color-accent);
+    background: var(--sl-color-accent-low);
+    color: var(--sl-color-accent-high);
+  }
+  .gb-list { list-style: none; padding: 0; display: grid; gap: 1rem; }
+  .gb-item {
+    margin: 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--sl-color-hairline);
+    border-radius: 0.75rem;
+  }
+  .gb-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; }
+  .gb-meta strong { color: var(--sl-color-white); overflow-wrap: anywhere; }
+  .gb-meta time { font-size: var(--sl-text-sm); color: var(--sl-color-gray-3); }
+  .gb-delete {
+    margin-inline-start: auto;
+    padding: 0.25rem 0.75rem;
+    background: transparent;
+    border: 1px solid var(--sl-color-red);
+    color: var(--sl-color-red-high);
+    font-size: var(--sl-text-sm);
+  }
+  .gb-body { margin-top: 0.5rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .gb-translation {
+    margin-top: 0.5rem;
+    padding-left: 0.75rem;
+    border-left: 2px solid var(--sl-color-gray-5);
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-2);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+  .gb-translation-label { font-weight: 600; }
+</style>

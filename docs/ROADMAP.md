@@ -78,6 +78,16 @@ Refine Chapters 13–14:
 
 Exit gate: security boundaries are precise and no speculative statement is presented as current fact.
 
+## Trial increment — Reader guestbook
+
+Deliver the reader comment feature specified in `docs/COMMENT_FEATURE_DESIGN.md`:
+
+- anonymous posting in any language with automatic English translation;
+- bot check, rate limit, and automated moderation;
+- administrator sign-in and comment deletion.
+
+Exit gate: the acceptance list in the design document passes locally; production use additionally requires the configured external services and deployment authorization.
+
 ## Phase 7 — Release readiness
 
 - Complete cross-link and navigation review.
