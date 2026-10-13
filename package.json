@@ -18,7 +18,7 @@
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/starlight": "^0.41.4",
-    "@astrojs/vercel": "^11.0.13",
+    "@astrojs/vercel": "11.0.14",
     "@supabase/supabase-js": "^2.117.3",
     "astro": "^7.0.4",
     "bcryptjs": "^3.0.3",
