@@ -22,7 +22,7 @@ Read only the documents relevant to the task, in this order:
 
 ## Non-negotiable workflow
 
-- Treat the current site as a prototype until its phase is accepted in `docs/STATUS.md`.
+- The site is in a public trial and accepts reader comments and feedback; check `docs/STATUS.md` for the current phase.
 - Work content-first: update the relevant Markdown plan or chapter before changing presentation code.
 - Implement one bounded increment at a time. Do not silently expand into later roadmap phases.
 - Preserve the 14-chapter book structure unless the user explicitly approves a structural change.

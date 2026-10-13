@@ -5,7 +5,7 @@ description: Plan, author, audit, implement, verify, and release the Understandi
 
 # Maintain the ChatGPT Handbook
 
-Work content-first and advance one accepted increment at a time. Treat the current site as a prototype until the governing status document marks the relevant phase accepted.
+Work content-first and advance one accepted increment at a time. The site is live in a public trial and accepts reader comments and feedback; follow the governing status document for the current phase.
 
 ## Establish the active phase
 

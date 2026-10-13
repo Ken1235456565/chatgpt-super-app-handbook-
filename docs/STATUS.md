@@ -2,30 +2,22 @@
 
 ## Current phase
 
-**Phase 1 — Audit remediation complete**
+**Public trial — live and accepting reader feedback**
 
 ## Current state
 
-An Astro/Starlight prototype already exists with 14 generated chapter pages, local images, navigation, search, sitemap, and Vercel configuration. It is a useful implementation baseline, but it predates the governed incremental workflow and must not yet be treated as an editorially accepted release.
+The Astro/Starlight site is live in a public trial with 14 chapter pages, local images, navigation, search, sitemap, and Vercel configuration. The governance workflow (Phase 0), content audit, and audit remediation (Phase 1) are complete; their records remain in `docs/PHASE_1_CONTENT_AUDIT.md` and `docs/CONTENT_ARCHITECTURE.md`.
 
-The Phase 0 documents and project-local skill passed structural validation. The user's Phase 1 instruction accepted the governance workflow and authorized the content audit.
-
-The Phase 1 audit is recorded in `docs/PHASE_1_CONTENT_AUDIT.md`. It confirms all chapter boundaries and assigns every requested topic an owner and disposition.
-
-The user then approved a bounded remediation: consolidate five repeated topics, remove product pricing plans, and remove desktop-interface descriptions. Canonical ownership now lives in `docs/CONTENT_ARCHITECTURE.md`. The chapter Markdown was updated without changing homepage or presentation code, and the production build passed.
+During the trial the project accepts reader comments and feedback. Feedback is triaged into bounded increments: content corrections go to the owning chapter, and site improvements follow `docs/SITE_STANDARD.md`.
 
 ## Allowed next increment
 
-Review and accept the Phase 1 remediation only:
-
-- confirm the canonical ownership and deletions;
-- choose whether to begin Phase 2 as ordered in the roadmap;
-- do not begin chapter or website edits until that choice is explicit.
+- Collect and triage reader comments and feedback.
+- Apply content corrections and site improvements the user approves, one bounded increment at a time.
+- Continue roadmap phases when the user chooses to start them.
 
 ## Deferred work
 
-- Do not expand or redesign the site during the audit review.
-- Do not declare the imported chapters technically verified.
 - Do not push to GitHub or deploy to Vercel without explicit authorization.
 
 ## Phase log
@@ -36,3 +28,4 @@ Review and accept the Phase 1 remediation only:
 | 2026-08-04 | Phase 0 | Governance documents completed and skill validated |
 | 2026-08-04 | Phase 1 | Fourteen chapters audited; topic, repetition, staleness, and structure findings recorded; awaiting acceptance |
 | 2026-08-04 | Phase 1 remediation | Five topics consolidated; pricing plans and desktop UI removed; build passed |
+| 2026-10-12 | Public trial | Site entered public trial; reader comments and feedback accepted |

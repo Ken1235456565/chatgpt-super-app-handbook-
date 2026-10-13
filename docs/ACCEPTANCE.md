@@ -46,5 +46,5 @@ Report:
 3. What was verified and with which command or source.
 4. What remains unverified, deferred, or outside the phase.
 
-Do not describe a prototype as complete merely because it builds.
+Do not describe a change to the live trial site as complete merely because it builds.
 
